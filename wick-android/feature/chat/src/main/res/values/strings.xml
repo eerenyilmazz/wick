@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="chat_back">Geri</string>
+    <string name="chat_send">Gönder</string>
+    <string name="chat_input_placeholder">Mesaj yaz…</string>
+    <string name="chat_session_expired">Bu sohbetin süresi doldu</string>
+    <string name="chat_session_ended">Sohbet sonlandırıldı</string>
+    <string name="chat_error_unauthorized">Oturumun sona erdi. Lütfen tekrar giriş yap.</string>
+    <string name="chat_error_no_connection">İnternet bağlantını kontrol et ve tekrar dene.</string>
+    <string name="chat_error_unknown">Bir hata oluştu. Lütfen tekrar dene.</string>
+
+    <string name="conversations_nav_discover">Keşfet</string>
+    <string name="conversations_nav_matches">Eşleşmeler</string>
+    <string name="conversations_nav_conversations">Mesajlar</string>
+    <string name="conversations_nav_profile">Profil</string>
+    <string name="conversations_empty_title">Aktif sohbet yok</string>
+    <string name="conversations_empty_body">Eşleşmelerine davet gönder ve konuşmaya başla.</string>
+    <string name="conversations_empty_cta">Eşleşmelere git</string>
+    <string name="conversations_remaining_minutes">%1$d dk kaldı</string>
+    <string name="conversations_error_unknown">Bir hata oluştu. Lütfen tekrar dene.</string>
+    <string name="conversations_expired">Süresi doldu</string>
+    <string name="conversations_no_message_yet">Henüz mesaj yok</string>
+
+    <string name="chat_extend_body">Sohbeti %1$d dakika uzatmak için %2$d token harcayacaksın.</string>
+    <string name="chat_extend_cta">%1$d token ile uzat</string>
+    <string name="chat_extend_dismiss">Sohbeti sonlandır</string>
+    <string name="chat_reconnecting">Yeniden bağlanıyor…</string>
+    <string name="chat_time_remaining">%1$02d:%2$02d kaldı</string>
+    <string name="chat_error_session_not_found">Aktif bir sohbet oturumu bulunamadı</string>
+    <string name="chat_error_invalid_link">Geçersiz veya süresi dolmuş link.</string>
+    <string name="chat_message_failed_retry">Gönderilemedi — tekrar dene</string>
+    <string name="chat_extend_error_insufficient_tokens">Yeterli tokenin yok.</string>
+    <string name="chat_extend_buy_tokens">Token Satın Al</string>
+    <string name="conversations_past_header">GEÇMİŞ SOHBETLER</string>
+    <string name="chat_report_success">Şikayetin alındı, en kısa sürede inceleyeceğiz.</string>
+    <string name="chat_typing_indicator">%1$s yazıyor…</string>
+</resources>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="matches_nav_discover">Keşfet</string>
+    <string name="matches_nav_matches">Eşleşmeler</string>
+    <string name="matches_nav_conversations">Mesajlar</string>
+    <string name="matches_nav_profile">Profil</string>
+    <string name="matches_empty_title">Henüz eşleşmen yok</string>
+    <string name="matches_empty_body">Keşfet\'teki kişileri beğen. Karşılıklı beğeni olursa burada görünecekler.</string>
+    <string name="matches_empty_cta">Keşfete git</string>
+    <string name="matches_error_unauthorized">Oturumun sona erdi. Lütfen tekrar giriş yap.</string>
+    <string name="matches_error_no_connection">İnternet bağlantını kontrol et ve tekrar dene.</string>
+    <string name="matches_error_unknown">Bir hata oluştu. Lütfen tekrar dene.</string>
+    <string name="matches_incoming_invitations_label">GELEN DAVETLER</string>
+    <string name="matches_incoming_invitation_body">%1$s seni sohbete davet etti</string>
+    <string name="matches_invitation_accept">Kabul et</string>
+    <string name="matches_invitation_decline">Reddet</string>
+    <string name="matches_row_invite">Davet et</string>
+    <string name="matches_row_waiting">Bekleniyor</string>
+    <string name="matches_row_status_sent">Davet gönderildi</string>
+    <string name="matches_row_status_incoming">Seni davet etti</string>
+    <string name="matches_row_status_accepted">Aktif sohbet</string>
+    <string name="matches_row_status_session_locked">Sohbet sona erdi</string>
+    <string name="matches_row_status_declined">Davet reddedildi</string>
+
+    <string name="match_detail_back">Geri</string>
+    <string name="match_detail_age_name">%1$s, %2$d</string>
+    <string name="match_detail_matched_on">%1$s tarihinde eşleştiniz</string>
+    <string name="match_detail_about_label">HAKKINDA</string>
+    <string name="match_detail_about_empty">Henüz kendinden bahsetmemiş</string>
+    <string name="match_detail_interests_label">İLGİ ALANLARI</string>
+    <string name="match_detail_interests_empty">Henüz ilgi alanı eklenmemiş</string>
+    <string name="match_detail_verified">Doğrulanmış profil</string>
+    <string name="match_detail_invite_action">Sohbete davet et</string>
+    <string name="match_detail_invite_sent">Davet gönderildi, yanıt bekleniyor</string>
+    <string name="match_detail_invite_incoming">Bu kişi seni sohbete davet etti. Gelen davetlerden yanıtlayabilirsin.</string>
+    <string name="match_detail_open_chat">Sohbete gir</string>
+    <string name="match_detail_invite_declined">Davetin reddedildi</string>
+    <string name="match_detail_invite_retry_action">%1$d token ile yeniden dene</string>
+    <string name="match_detail_invite_retry_limit_reached">Bu eşleşme için yeniden dene limitine ulaştın.</string>
+    <string name="match_detail_error_unauthorized">Oturumun sona erdi. Lütfen tekrar giriş yap.</string>
+    <string name="match_detail_error_no_connection">İnternet bağlantını kontrol et ve tekrar dene.</string>
+    <string name="match_detail_error_conflict">Bu kişiye zaten bekleyen bir davetin veya aktif bir sohbetin var</string>
+    <string name="match_detail_error_rate_limited">Günlük davet limitine ulaştın. Yarın tekrar deneyebilirsin.</string>
+    <string name="match_detail_error_unknown">Bir hata oluştu. Lütfen tekrar dene.</string>
+    <string name="match_detail_more_options">Diğer seçenekler</string>
+    <string name="match_detail_unmatch_action">Eşleşmeyi kaldır</string>
+    <string name="match_detail_unmatch_confirm_title">Eşleşme kaldırılsın mı?</string>
+    <string name="match_detail_unmatch_confirm_body">%1$s ile eşleşmen ve sohbetiniz kalıcı olarak silinecek. Bu işlem geri alınamaz.</string>
+    <string name="match_detail_unmatch_confirm_action">Kaldır</string>
+    <string name="match_detail_unmatch_cancel_action">Vazgeç</string>
+
+    <string name="matches_paid_invite_title">Token ile davet gönder</string>
+    <string name="matches_paid_invite_heading">%1$s\'e davet gönder</string>
+    <string name="matches_paid_invite_body">Günlük ücretsiz davet hakkın doldu. %1$d token harcayarak davet gönderebilirsin.</string>
+    <string name="matches_paid_invite_cta">%1$d token ile gönder</string>
+    <string name="matches_paid_invite_cancel">Vazgeç</string>
+    <string name="match_detail_invite_cancel">Daveti Geri Çek</string>
+</resources>

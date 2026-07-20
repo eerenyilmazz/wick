@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#5B403A",
+                        "outline": "#aa8982",
+                        "error-container": "#93000a",
+                        "surface-container": "#2b1c18",
+                        "tertiary-fixed-dim": "#5fd6f1",
+                        "tertiary-container": "#00a0ba",
+                        "primary-fixed": "#ffdad2",
+                        "primary": "#ffb4a3",
+                        "inverse-primary": "#b52603",
+                        "on-surface": "#f9dcd6",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-container": "#003039",
+                        "background": "#0F0A14",
+                        "primary-container": "#ff5a36",
+                        "inverse-surface": "#f9dcd6",
+                        "surface-tint": "#ffb4a3",
+                        "surface": "#1E100D",
+                        "tertiary": "#5fd6f1",
+                        "on-primary-fixed": "#3d0600",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "surface-dim": "#1e100d",
+                        "on-surface-variant": "#e3beb6",
+                        "on-secondary": "#372c3f",
+                        "surface-container-lowest": "#180b08",
+                        "secondary-fixed": "#eeddf6",
+                        "on-background": "#f9dcd6",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "surface-bright": "#473531",
+                        "surface-container-low": "#271814",
+                        "on-error": "#690005",
+                        "error": "#ffb4ab",
+                        "on-primary": "#630f00",
+                        "on-secondary-container": "#c3b3cb",
+                        "on-tertiary-fixed": "#001f26",
+                        "surface-container-high": "#372622",
+                        "on-secondary-fixed-variant": "#4e4256",
+                        "on-secondary-fixed": "#211829",
+                        "surface-container-highest": "#42312d",
+                        "tertiary-fixed": "#aaedff",
+                        "inverse-on-surface": "#3e2c28",
+                        "on-tertiary": "#003640",
+                        "surface-variant": "#42312d",
+                        "secondary-fixed-dim": "#d1c1d9",
+                        "secondary": "#d1c1d9",
+                        "secondary-container": "#504559",
+                        "on-primary-container": "#5a0c00",
+                        "on-tertiary-fixed-variant": "#004e5c",
+                        "wick-muted": "#7A6E84",
+                        "wick-dark-surface": "#241A2C"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "32px",
+                        "xs": "8px",
+                        "md": "24px",
+                        "margin-desktop": "40px",
+                        "gutter": "16px",
+                        "margin-mobile": "20px",
+                        "sm": "16px",
+                        "base": "4px",
+                        "xl": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "button-text": ["Manrope"],
+                        "headline-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "800"}],
+                        "button-text": ["16px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0F0A14;
+            color: #f9dcd6;
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+        }
+        .camera-guideline {
+            border: 2px dashed #ff5a36;
+            opacity: 0.6;
+        }
+        .chunky-button {
+            transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .chunky-button:active {
+            transform: scale(0.95);
+        }
+        .sticker-rotate {
+            transform: rotate(-3deg);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen">
+<!-- Top Navigation Anchor -->
+<nav class="bg-background flex items-center justify-between px-margin-mobile h-16 w-full max-w-7xl mx-auto top-0 z-50">
+<button class="transition-all duration-200 hover:opacity-80 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-headline-md" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary">Hesap Doğrulama</h1>
+<div class="w-8"></div> <!-- Spacer to center title -->
+</nav>
+<main class="flex-1 flex flex-col px-margin-mobile py-sm max-w-md mx-auto w-full">
+<!-- Header Section -->
+<header class="mt-xs mb-lg">
+<h2 class="font-headline-xl text-headline-xl text-white mb-base">Profilini doğrula</h2>
+<p class="text-wick-muted font-body-lg text-body-lg">Doğrulanmış rozeti al, daha çok eşleşme yakala</p>
+</header>
+<!-- Camera Preview Area (Mock) -->
+<div class="relative w-full aspect-square bg-wick-dark-surface rounded-full flex items-center justify-center overflow-hidden border-4 border-surface-container-high shadow-[0_0_40px_rgba(255,90,54,0.1)] mb-md">
+<!-- Simulated Camera Feed -->
+<div class="absolute inset-0 opacity-40">
+<div class="w-full h-full bg-cover bg-center" data-alt="A dark and moody high-contrast selfie of a stylish person in a dimly lit room with subtle orange ambient lighting hitting their face. The background is a minimalist obsidian surface. The lighting is dramatic, professional, and follows the energetic high-impact brand aesthetic of Wick." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCqTJoDnbIfQW6Bj5MgE_3FL4HiHzMwb9xYQExZi2zwFhgCmd9b6qvkCCgAQImqENR-WCYcD-e9UOqh9lslYMrwm5RHmlpit819LpqSES4uJEWtYcj8rktGHaRTkkmAf8coHjAKMfPJ3NVFYlx3NYsvRIQe-PREao4DdfdgABADEj5bNduasPQncBAr-PW7nb1EYDLNYmJGQL4WYTiGE74jpgY_H9O-KRgQowf-Kt6ONLuB_aLwNe8GjXGEQrDHbYLYK6H8_CA7yoA')"></div>
+</div>
+<!-- Face Guideline -->
+<div class="relative w-2/3 h-4/5 camera-guideline rounded-[120px] flex items-center justify-center">
+<div class="absolute top-1/4 w-full h-px bg-primary opacity-20"></div>
+<div class="absolute top-1/2 w-full h-px bg-primary opacity-20"></div>
+<span class="material-symbols-outlined text-primary opacity-30 text-[64px]" data-icon="face">face</span>
+</div>
+<!-- Interaction Sticker -->
+<div class="absolute bottom-10 right-10 bg-primary-container p-2 rounded-xl sticker-rotate shadow-lg">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="text-center mb-xl">
+<p class="text-primary font-label-md text-label-md tracking-wider">YÜZÜNÜ ÇERÇEVE İÇİNE HİZALA</p>
+</div>
+<!-- Action Section -->
+<div class="mt-auto space-y-md pb-lg">
+<button class="chunky-button w-full h-16 bg-primary-container rounded-full flex items-center justify-center gap-sm shadow-[0_4px_20px_rgba(255,90,54,0.4)]">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="photo_camera" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+<span class="text-on-primary-container font-button-text text-button-text">Çek</span>
+</button>
+<div class="flex justify-center">
+<button class="text-wick-muted font-label-md text-label-md font-bold uppercase tracking-widest hover:text-white transition-colors underline decoration-wick-muted/30 underline-offset-8">
+                    Daha sonra yap
+                </button>
+</div>
+</div>
+</main>
+<!-- Micro-interaction Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cameraArea = document.querySelector('.camera-guideline');
+            
+            // Subtle pulse effect for the guideline
+            let opacity = 0.6;
+            let direction = -0.01;
+            
+            function pulse() {
+                opacity += direction;
+                if (opacity <= 0.3 || opacity >= 0.7) direction *= -1;
+                cameraArea.style.opacity = opacity;
+                requestAnimationFrame(pulse);
+            }
+            
+            pulse();
+
+            // Simple click feedback
+            const mainButton = document.querySelector('.chunky-button');
+            mainButton.addEventListener('click', () => {
+                const flash = document.createElement('div');
+                flash.className = 'fixed inset-0 bg-white z-[100] pointer-events-none opacity-0 transition-opacity duration-100';
+                document.body.appendChild(flash);
+                
+                setTimeout(() => flash.style.opacity = '0.8', 10);
+                setTimeout(() => {
+                    flash.style.opacity = '0';
+                    setTimeout(() => flash.remove(), 100);
+                }, 150);
+            });
+        });
+    </script>
+</body></html>

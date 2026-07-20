@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_title">WICK\'e hoş geldin</string>
+    <string name="login_subtitle">Giriş yap ve ateşi yak.</string>
+    <string name="login_email_placeholder">E-posta</string>
+    <string name="login_password_placeholder">Şifre</string>
+    <string name="login_submit_button">Giriş yap</string>
+    <string name="login_forgot_password">Şifremi unuttum</string>
+    <string name="login_keep_signed_in">Oturumu açık tut</string>
+    <string name="login_register_prompt">Hesabın yok mu?</string>
+    <string name="login_register_link">Kayıt ol</string>
+    <string name="login_register_success">Hesabın oluşturuldu. Şimdi giriş yapabilirsin.</string>
+    <string name="login_error_unauthorized">E-posta veya şifre hatalı</string>
+    <string name="login_error_rate_limited">Çok fazla başarısız deneme. Lütfen birkaç dakika bekle.</string>
+    <string name="login_error_no_connection">İnternet bağlantını kontrol et ve tekrar dene.</string>
+    <string name="login_error_unknown">Bir hata oluştu. Lütfen tekrar dene.</string>
+
+    <string name="register_welcome_badge">Hoş geldin</string>
+    <string name="register_title">Hesap oluştur</string>
+    <string name="register_subtitle">Birkaç bilgi, sonra başlıyoruz.</string>
+    <string name="register_email_placeholder">E-posta</string>
+    <string name="register_password_placeholder">Şifre (en az 8 karakter)</string>
+    <string name="register_password_requirements">Şifre en az 8 karakter olmalı; büyük harf, küçük harf ve rakam içermeli.</string>
+    <string name="register_confirm_password_placeholder">Şifreyi tekrar gir</string>
+    <string name="register_password_mismatch">Şifreler eşleşmiyor</string>
+    <string name="register_display_name_placeholder">Adın</string>
+    <string name="register_submit_button">Devam et</string>
+    <string name="register_login_prompt">Zaten hesabın var mı?</string>
+    <string name="register_login_link">Giriş yap</string>
+    <string name="register_error_conflict">Bu e-posta adresi zaten kullanılıyor</string>
+    <string name="register_error_rate_limited">Çok fazla deneme. Lütfen birkaç dakika bekle.</string>
+    <string name="register_error_no_connection">İnternet bağlantını kontrol et ve tekrar dene.</string>
+    <string name="register_error_unknown">Bir hata oluştu. Lütfen tekrar dene.</string>
+
+    <string name="legal_title">Yasal belgeler</string>
+    <string name="legal_subtitle">Devam etmek için aşağıdaki belgeleri okumanı ve onaylamanı istiyoruz.</string>
+    <string name="legal_privacy_policy_label">Gizlilik Politikası</string>
+    <string name="legal_terms_label">Kullanım Koşulları</string>
+    <string name="legal_checkbox_label">Gizlilik Politikası\'nı ve Kullanım Koşulları\'nı okudum, kabul ediyorum.</string>
+    <string name="legal_read_required_hint">Devam edebilmek için her iki belgeyi de sonuna kadar okumalısın.</string>
+    <string name="legal_document_read">Okundu</string>
+    <string name="legal_submit_button">Kabul et ve devam et</string>
+    <string name="legal_error_conflict">Bu e-posta adresi zaten kullanılıyor</string>
+    <string name="legal_error_rate_limited">Çok fazla deneme. Lütfen birkaç dakika bekle.</string>
+    <string name="legal_error_no_connection">İnternet bağlantını kontrol et ve tekrar dene.</string>
+    <string name="legal_error_unknown">Bir hata oluştu. Lütfen tekrar dene.</string>
+
+    <string name="forgot_password_title">Şifreni mi unuttun?</string>
+    <string name="forgot_password_subtitle">E-postana bir şifre sıfırlama bağlantısı göndereceğiz.</string>
+    <string name="forgot_password_email_placeholder">E-posta</string>
+    <string name="forgot_password_submit_button">Sıfırlama bağlantısı gönder</string>
+    <string name="forgot_password_support_prompt">Hâlâ sorun mu yaşıyorsun?</string>
+    <string name="forgot_password_support_link">Yardım al</string>
+
+    <string name="email_sent_title">E-postanı kontrol et</string>
+    <string name="email_sent_body">%1$s adresine bir şifre sıfırlama bağlantısı gönderdik.</string>
+    <string name="email_sent_open_mail_app">E-posta uygulamasını aç</string>
+    <string name="email_sent_resend">Tekrar gönder</string>
+
+    <string name="reset_password_title">Yeni şifre belirle</string>
+    <string name="reset_password_subtitle">En az 8 karakter olmalı.</string>
+    <string name="reset_password_new_label">Yeni şifre</string>
+    <string name="reset_password_new_placeholder">Yeni şifre</string>
+    <string name="reset_password_confirm_label">Şifreyi onayla</string>
+    <string name="reset_password_confirm_placeholder">Yeni şifreyi tekrar gir</string>
+    <string name="reset_password_mismatch">Şifreler eşleşmiyor</string>
+    <string name="reset_password_submit_button">Şifreyi güncelle</string>
+
+    <string name="forgot_password_error_unknown">Bir hata oluştu. Lütfen tekrar dene.</string>
+    <string name="forgot_password_error_no_connection">İnternet bağlantını kontrol et.</string>
+    <string name="reset_password_error_unknown">Bir hata oluştu. Lütfen tekrar dene.</string>
+    <string name="reset_password_error_no_connection">İnternet bağlantını kontrol et.</string>
+    <string name="reset_password_error_invalid_link">Geçersiz veya süresi dolmuş link.</string>
+
+    <string name="location_permission_logo">WICK</string>
+    <string name="location_permission_avatar_placeholder">A</string>
+    <string name="notification_permission_logo">Wick</string>
+
+    <string name="location_permission_title">Yakınındaki kişileri keşfet</string>
+    <string name="location_permission_body">Konumunu paylaşarak sana en yakın eşleşmeleri gösterebiliriz.</string>
+    <string name="location_permission_cta">Konum iznine izin ver</string>
+    <string name="location_permission_skip">Şimdi değil</string>
+    <string name="location_permission_close">Kapat</string>
+
+    <string name="notification_permission_title">Hiçbir eşleşmeyi kaçırma</string>
+    <string name="notification_permission_body">Yeni eşleşme, davet ve mesajlardan anında haberdar ol.</string>
+    <string name="notification_permission_cta">Bildirimlere izin ver</string>
+    <string name="notification_permission_skip">Şimdi değil</string>
+</resources>

@@ -1,0 +1,184 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#93000a",
+                    "on-background": "#f9dcd6",
+                    "surface-dim": "#1e100d",
+                    "primary-fixed-dim": "#ffb4a3",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#4e4256",
+                    "surface-container": "#2b1c18",
+                    "primary": "#ffb4a3",
+                    "on-primary-container": "#5a0c00",
+                    "on-tertiary": "#003640",
+                    "primary-fixed": "#ffdad2",
+                    "on-tertiary-container": "#003039",
+                    "tertiary-fixed": "#aaedff",
+                    "secondary": "#d1c1d9",
+                    "surface-container-low": "#271814",
+                    "surface": "#1E100D",
+                    "outline-variant": "#5B403A",
+                    "background": "#0F0A14",
+                    "primary-container": "#ff5a36",
+                    "surface-bright": "#473531",
+                    "on-surface-variant": "#E3BEB6",
+                    "secondary-container": "#504559",
+                    "surface-container-lowest": "#180b08",
+                    "on-error": "#690005",
+                    "secondary-fixed": "#eeddf6",
+                    "on-primary": "#630f00",
+                    "inverse-on-surface": "#3e2c28",
+                    "surface-container-high": "#372622",
+                    "on-tertiary-fixed-variant": "#004e5c",
+                    "on-tertiary-fixed": "#001f26",
+                    "on-primary-fixed-variant": "#8c1900",
+                    "surface-container-highest": "#42312d",
+                    "on-secondary-container": "#c3b3cb",
+                    "inverse-surface": "#f9dcd6",
+                    "inverse-primary": "#b52603",
+                    "surface-variant": "#42312d",
+                    "on-secondary": "#372c3f",
+                    "surface-tint": "#ffb4a3",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#00a0ba",
+                    "outline": "#aa8982",
+                    "on-surface": "#f9dcd6",
+                    "on-primary-fixed": "#3d0600",
+                    "tertiary-fixed-dim": "#5fd6f1",
+                    "tertiary": "#5fd6f1",
+                    "secondary-fixed-dim": "#d1c1d9",
+                    "on-secondary-fixed": "#211829"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "48px",
+                    "sm": "16px",
+                    "base": "4px",
+                    "xs": "8px",
+                    "md": "24px",
+                    "gutter": "16px",
+                    "margin-mobile": "20px",
+                    "lg": "32px",
+                    "margin-desktop": "40px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Manrope"],
+                    "button-text": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "headline-md": ["Manrope"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "headline-xl": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "button-text": ["16px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "800"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0F0A14;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        @keyframes pulse-dots {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+        .loading-dot {
+            animation: pulse-dots 1.4s infinite ease-in-out both;
+        }
+        .loading-dot:nth-child(1) { animation-delay: -0.32s; }
+        .loading-dot:nth-child(2) { animation-delay: -0.16s; }
+        
+        .sticker-shadow {
+            box-shadow: 0 10px 30px -5px rgba(255, 90, 54, 0.3);
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- Brand Anchor Shell Logic (As specified for the TopAppBar JSON configuration, though used here as the central branding core) -->
+<main class="flex flex-col items-center justify-between w-full h-screen py-xl px-margin-mobile">
+<!-- Center Content -->
+<div class="flex-1 flex flex-col items-center justify-center">
+<!-- Logo Box (Sticker Aesthetic) -->
+<div class="relative group">
+<!-- Subtle Glow behind the sticker -->
+<div class="absolute inset-0 bg-primary-container blur-2xl opacity-20 scale-125"></div>
+<div class="w-32 h-32 bg-primary-container rounded-[20px] -rotate-[4deg] flex items-center justify-center sticker-shadow transition-transform duration-500 hover:rotate-0 active:scale-95">
+<!-- Icon: Exact string from JSON instructions if mapped, but here using "local_fire_department" as specified -->
+<span class="material-symbols-outlined text-[64px] text-on-primary-fixed" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">
+                        local_fire_department
+                    </span>
+</div>
+</div>
+<!-- Brand Name: High-impact typography -->
+<div class="mt-lg">
+<h1 class="font-headline-xl text-headline-xl text-on-background tracking-tighter uppercase font-black">
+                    WICK
+                </h1>
+</div>
+</div>
+<!-- Subtle Loading Indicator at bottom -->
+<div class="flex gap-xs pb-xl">
+<div class="loading-dot w-2 h-2 rounded-full" style="background-color: #7A6E84;"></div>
+<div class="loading-dot w-2 h-2 rounded-full" style="background-color: #7A6E84;"></div>
+<div class="loading-dot w-2 h-2 rounded-full" style="background-color: #7A6E84;"></div>
+</div>
+</main>
+<!-- Micro-interaction for haptic-feel rotation -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const logoBox = document.querySelector('.sticker-shadow');
+            
+            // Random subtle wiggle animation every few seconds to feel "alive"
+            setInterval(() => {
+                const randomRotate = (Math.random() * 4 - 6).toFixed(2); // between -6 and -2
+                logoBox.style.transform = `rotate(${randomRotate}deg)`;
+                
+                setTimeout(() => {
+                    logoBox.style.transform = `rotate(-4deg)`;
+                }, 300);
+            }, 4000);
+
+            // Active state interaction
+            logoBox.addEventListener('touchstart', () => {
+                logoBox.classList.add('scale-95');
+            });
+            logoBox.addEventListener('touchend', () => {
+                logoBox.classList.remove('scale-95');
+            });
+        });
+    </script>
+</body></html>

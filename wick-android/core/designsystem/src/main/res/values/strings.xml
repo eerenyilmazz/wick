@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wick_back">Geri</string>
+    <string name="wick_app_name">WICK</string>
+    <string name="password_field_show">Şifreyi göster</string>
+    <string name="password_field_hide">Şifreyi gizle</string>
+    <string name="error_state_retry">Tekrar dene</string>
+
+    <string name="safety_sheet_title">Kullanıcıyı bildir veya engelle</string>
+    <string name="safety_block_title">Engelle</string>
+    <string name="safety_block_subtitle">Bu kullanıcıyı artık görmeyeceksin</string>
+    <string name="safety_report_title">Şikayet et</string>
+    <string name="safety_report_subtitle">Uygunsuz içeriği bize bildirin</string>
+    <string name="safety_continue">Devam et</string>
+    <string name="safety_cancel">İptal</string>
+    <string name="safety_reason_inappropriate_content">Uygunsuz içerik</string>
+    <string name="safety_reason_fake_profile">Sahte profil</string>
+    <string name="safety_reason_harassment">Taciz</string>
+    <string name="safety_reason_spam">Spam</string>
+    <string name="safety_reason_other">Diğer</string>
+</resources>

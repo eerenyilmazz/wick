@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#5fd6f1",
+                        "on-error": "#690005",
+                        "surface-container-lowest": "#180b08",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "on-secondary-container": "#c3b3cb",
+                        "on-primary": "#630f00",
+                        "surface-container-low": "#271814",
+                        "tertiary": "#5fd6f1",
+                        "inverse-surface": "#f9dcd6",
+                        "on-primary-fixed-variant": "#8c1900",
+                        "on-background": "#f9dcd6",
+                        "secondary-fixed": "#eeddf6",
+                        "primary-container": "#ff5a36",
+                        "surface-container": "#2b1c18",
+                        "tertiary-container": "#00a0ba",
+                        "on-secondary-fixed-variant": "#4e4256",
+                        "on-tertiary-container": "#003039",
+                        "on-tertiary": "#003640",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#1E100D",
+                        "secondary": "#d1c1d9",
+                        "secondary-container": "#504559",
+                        "surface-variant": "#42312d",
+                        "surface-container-highest": "#42312d",
+                        "surface-dim": "#1e100d",
+                        "inverse-primary": "#b52603",
+                        "outline-variant": "#5b403a",
+                        "on-primary-fixed": "#3d0600",
+                        "secondary-fixed-dim": "#d1c1d9",
+                        "on-secondary": "#372c3f",
+                        "on-surface": "#f9dcd6",
+                        "on-surface-variant": "#E3BEB6",
+                        "error": "#ffb4ab",
+                        "background": "#0F0A14",
+                        "on-secondary-fixed": "#211829",
+                        "on-tertiary-fixed": "#001f26",
+                        "primary": "#ffb4a3",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#5a0c00",
+                        "surface-bright": "#473531",
+                        "tertiary-fixed": "#aaedff",
+                        "inverse-on-surface": "#3e2c28",
+                        "primary-fixed": "#ffdad2",
+                        "on-tertiary-fixed-variant": "#004e5c",
+                        "surface-tint": "#ffb4a3",
+                        "outline": "#aa8982",
+                        "surface-container-high": "#372622"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "48px",
+                        "margin-mobile": "20px",
+                        "xs": "8px",
+                        "lg": "32px",
+                        "base": "4px",
+                        "sm": "16px",
+                        "margin-desktop": "40px",
+                        "md": "24px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "button-text": ["Manrope"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "800"}],
+                        "button-text": ["16px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; background-color: #0F0A14; overflow-x: hidden; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .active-dot { background-color: #FF5A36; width: 24px; }
+        .inactive-dot { background-color: rgba(255, 255, 255, 0.3); width: 6px; }
+        .chunky-shadow-primary { box-shadow: 0 4px 20px -2px rgba(255, 90, 54, 0.5); }
+        .chunky-shadow-surface { box-shadow: 0 4px 15px -2px rgba(0, 0, 0, 0.6); }
+        .chunky-shadow-tertiary { box-shadow: 0 4px 15px -2px rgba(95, 214, 241, 0.4); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen">
+<!-- Top Navigation Bar Overlay -->
+<header class="fixed top-0 left-0 right-0 z-40 flex justify-between items-center px-margin-mobile h-16 pointer-events-none">
+<button class="pointer-events-auto w-10 h-10 flex items-center justify-center bg-background/40 backdrop-blur-md rounded-full text-on-surface hover:scale-95 transition-transform active:opacity-80">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<button class="pointer-events-auto w-10 h-10 flex items-center justify-center bg-background/40 backdrop-blur-md rounded-full text-on-surface hover:scale-95 transition-transform active:opacity-80">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">more_vert</span>
+</button>
+</header>
+<main class="pb-32">
+<!-- Image Gallery -->
+<section class="relative w-full aspect-[3/4] overflow-hidden">
+<!-- Pagination Dots -->
+<div class="absolute top-6 left-0 right-0 z-30 flex justify-center items-center gap-1.5 px-margin-mobile">
+<div class="h-1.5 active-dot rounded-full transition-all duration-300"></div>
+<div class="h-1.5 inactive-dot rounded-full"></div>
+<div class="h-1.5 inactive-dot rounded-full"></div>
+<div class="h-1.5 inactive-dot rounded-full"></div>
+</div>
+<!-- Scrollable Container -->
+<div class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar h-full" id="gallery">
+<div class="flex-shrink-0 w-full h-full snap-center relative">
+<img class="w-full h-full object-cover" data-alt="A professional, close-up lifestyle portrait of a young woman named Defne with a stylish, modern aesthetic. She is wearing fashionable streetwear and posing in a vibrant, neon-lit urban environment at dusk. The lighting creates high-chroma orange and deep purple highlights on her skin and hair, matching the Wick brand identity. The mood is energetic, confident, and slightly edgy, captured with a high-end cinematic lens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxiCZoKzRbO5pabEqz254CVezU9jtreJbEeM_yCvPo6ADzOKj7NuQGRV8KSqAY5v7_rYzE-Et1zItSfOa8js0Lr_x_9TvlzOa1-jk-8WeK2YaWkf7GQy5mYeqWDEnGOB2jFkw2ypL6K6kDjgC4v5Eu1nsPg41ZpFNheREVjxEHHunN9gwqfYCUWk5OGjKhMxAtIM_fDERIUD-aWmTEWocE2qRLV8Fej2Fd4ukjIyiDFYl1-8UAextyoKUQGMMY9fjy-3RJKqMaeGI"/>
+</div>
+<div class="flex-shrink-0 w-full h-full snap-center">
+<img class="w-full h-full object-cover" data-alt="A medium shot of Defne walking through a trendy, dimly lit designer café in Istanbul. She is holding a ceramic coffee cup, looking thoughtfully towards a window reflecting city lights. The scene is filled with warm, ambient glow from industrial lamps. The photography style is modern and sharp, emphasizing a sophisticated yet relatable personality. The color palette is dominated by deep obsidian tones and vibrant orange accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYkHNx5rM2lPfEjWMISd7EkfdcWV08hM2hOmHP1x5XiazIZHaOUhk8ezMSvSAV67nKX4YlAWp-zAleEZY-NEXoR5etVIpAnpUvb9_A_3EjvtnA19e7QZtb8-5ntz-qt3WK2URzejvJfbt7yMaP7Wl75fRB534WFRCT2ifTB1sk6kUf0euSu5WSb5A1kIIoVJqn2sohRuK1cbF-9TPuwVWz7e_gpFuoI2Ke2r2jW-OaVHHClJC_0Is-uTNcjokIxVdVQCrATtlTu8k"/>
+</div>
+<div class="flex-shrink-0 w-full h-full snap-center">
+<img class="w-full h-full object-cover" data-alt="A wide, atmospheric outdoor shot of Defne standing on a rooftop overlooking the Istanbul skyline at night. The Bosphorus Bridge is visible in the background with glowing amber lights. She is wearing a leather jacket, looking towards the camera with a playful smile. The image has a slight grain to feel like a candid high-fashion sticker, with high contrast and moody lighting characteristic of the Wick brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeHT0FYGbfjzMMQP1Q7O7TpdiXzTQmr36b9xtJigXadt12fqp0D3pTgnxFXyDxoGZ9ZWm0kP0NHh0hV6Q7zQoqaF4lhFSTEDxt7Gk9uby0ohtfDTpc1huyin051Y6k2FtiK97_VlPzmGscn_K1pWZCOXqZvV-g4JyakL6Nx9z4071p73wpW4OOTM_ewZPwkm9ABNLVLqpRfLooMrbTKv_FwFbCP9Dk5zOqwYrvhKSpBvZEpdU_SAjuPAYdkx6h-jknsjVk3MSV5Vw"/>
+</div>
+</div>
+</section>
+<!-- Information Content -->
+<article class="px-margin-mobile pt-lg space-y-md">
+<!-- Header -->
+<header class="flex items-center gap-xs">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Defne, 26</h1>
+<div class="flex items-center justify-center w-6 h-6 bg-primary-container rounded-full mt-1">
+<span class="material-symbols-outlined text-[14px] text-on-primary-container font-bold">check</span>
+</div>
+</header>
+<!-- Location -->
+<div class="flex items-center gap-xs text-on-secondary-container">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+<p class="font-body-md text-body-md">İstanbul · 3 km</p>
+</div>
+<!-- Bio -->
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                Hayatı akışında yaşamayı seviyorum. Kahve, iyi müzik ve uzun yürüyüşler vazgeçilmezim. Yeni yerler keşfetmek ve tasarım üzerine konuşmak beni her zaman heyecanlandırır. ✨
+            </p>
+<!-- Interests (Chips) -->
+<section>
+<h3 class="font-label-md text-label-md text-on-secondary-container mb-sm uppercase tracking-widest">İlgi Alanları</h3>
+<div class="flex flex-wrap gap-sm">
+<div class="px-md py-xs bg-[#241A2C] text-on-surface font-button-text text-label-md rounded-xl border border-white/5 transform -rotate-1">
+                        Müzik
+                    </div>
+<div class="px-md py-xs bg-[#241A2C] text-on-surface font-button-text text-label-md rounded-xl border border-white/5 transform rotate-2">
+                        Yürüyüş
+                    </div>
+<div class="px-md py-xs bg-[#241A2C] text-on-surface font-button-text text-label-md rounded-xl border border-white/5 transform -rotate-2">
+                        Sinema
+                    </div>
+<div class="px-md py-xs bg-[#241A2C] text-on-surface font-button-text text-label-md rounded-xl border border-white/5 transform rotate-1">
+                        Tasarım
+                    </div>
+<div class="px-md py-xs bg-[#241A2C] text-on-surface font-button-text text-label-md rounded-xl border border-white/5">
+                        Kahve
+                    </div>
+</div>
+</section>
+</article>
+</main>
+<!-- Bottom Action Bar -->
+<nav class="fixed bottom-0 left-0 right-0 h-32 flex items-center justify-center gap-lg px-margin-mobile z-50">
+<!-- Close Button -->
+<button class="w-16 h-16 flex items-center justify-center bg-surface-container-high text-on-surface-variant rounded-full chunky-shadow-surface hover:scale-105 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined text-[32px]">close</span>
+</button>
+<!-- Main Like/Flame Button -->
+<button class="w-24 h-24 flex items-center justify-center bg-primary-container text-on-primary-container rounded-full chunky-shadow-primary hover:scale-105 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined text-[48px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</button>
+<!-- Superlike Button -->
+<button class="w-16 h-16 flex items-center justify-center bg-tertiary-container text-on-tertiary-container rounded-full chunky-shadow-tertiary hover:scale-105 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">grade</span>
+</button>
+</nav>
+<!-- Interaction Script -->
+<script>
+        const gallery = document.getElementById('gallery');
+        const dots = document.querySelectorAll('.active-dot, .inactive-dot');
+
+        gallery.addEventListener('scroll', () => {
+            const scrollIndex = Math.round(gallery.scrollLeft / gallery.clientWidth);
+            dots.forEach((dot, index) => {
+                if(index === scrollIndex) {
+                    dot.className = 'h-1.5 active-dot rounded-full transition-all duration-300';
+                } else {
+                    dot.className = 'h-1.5 inactive-dot rounded-full transition-all duration-300';
+                }
+            });
+        });
+
+        // Add haptic-like scaling on button press
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('touchstart', () => {
+                btn.classList.add('scale-95');
+            });
+            btn.addEventListener('touchend', () => {
+                btn.classList.remove('scale-95');
+            });
+        });
+    </script>
+</body></html>

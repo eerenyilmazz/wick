@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WICK</string>
+
+    <string name="connection_error_title">Bağlantı hatası</string>
+    <string name="connection_error_body">İnternet bağlantını kontrol et ve tekrar dene.</string>
+    <string name="connection_error_retry">Tekrar dene</string>
+    <string name="connection_error_back">Geri</string>
+
+    <string name="maintenance_title">Wick şu an bakımda</string>
+    <string name="maintenance_body">Sana daha iyi hizmet sunabilmek için kısa bir ara verdik. Birkaç dakika içinde geri döneceğiz.</string>
+    <string name="maintenance_footer">BİRKAÇ DAKİKA İÇİNDE GERİ DÖNECEĞİZ</string>
+
+    <string name="force_update_title">Yeni sürüm mevcut</string>
+    <string name="force_update_body">En iyi deneyim için Wick\'i güncellemeniz gerekiyor. Güncelleme hızlı ve ücretsiz.</string>
+    <string name="force_update_cta">Şimdi güncelle</string>
+    <string name="force_update_version">v%1$s • STABLE</string>
+
+    <string name="notif_channel_match">Eşleşmeler</string>
+    <string name="notif_channel_chat">Mesajlar</string>
+    <string name="notif_channel_general">Genel</string>
+</resources>

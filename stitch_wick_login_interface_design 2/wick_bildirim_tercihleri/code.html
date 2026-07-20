@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#1E100D",
+                    "secondary-fixed-dim": "#d1c1d9",
+                    "on-tertiary-fixed": "#001f26",
+                    "tertiary-fixed-dim": "#5fd6f1",
+                    "surface-container-high": "#372622",
+                    "error-container": "#93000a",
+                    "on-primary-fixed": "#3d0600",
+                    "on-surface-variant": "#E3BEB6",
+                    "on-error-container": "#ffdad6",
+                    "outline-variant": "#5b403a",
+                    "inverse-on-surface": "#3e2c28",
+                    "secondary": "#d1c1d9",
+                    "on-tertiary-container": "#003039",
+                    "tertiary-container": "#00a0ba",
+                    "on-primary-container": "#5a0c00",
+                    "secondary-container": "#504559",
+                    "outline": "#aa8982",
+                    "on-error": "#690005",
+                    "on-background": "#f9dcd6",
+                    "error": "#ffb4ab",
+                    "inverse-surface": "#f9dcd6",
+                    "on-secondary-fixed": "#211829",
+                    "tertiary": "#5fd6f1",
+                    "on-secondary-container": "#c3b3cb",
+                    "on-tertiary": "#003640",
+                    "on-primary": "#1A0800",
+                    "background": "#0F0A14",
+                    "surface-container": "#2b1c18",
+                    "primary-fixed": "#ffdad2",
+                    "on-secondary-fixed-variant": "#4e4256",
+                    "surface-bright": "#473531",
+                    "surface-variant": "#42312d",
+                    "surface-dim": "#1e100d",
+                    "on-surface": "#f9dcd6",
+                    "tertiary-fixed": "#aaedff",
+                    "on-primary-fixed-variant": "#8c1900",
+                    "surface-container-lowest": "#180b08",
+                    "secondary-fixed": "#eeddf6",
+                    "surface-tint": "#ffb4a3",
+                    "primary": "#ffb4a3",
+                    "on-tertiary-fixed-variant": "#004e5c",
+                    "inverse-primary": "#b52603",
+                    "primary-container": "#ff5a36",
+                    "surface-container-highest": "#42312d",
+                    "primary-fixed-dim": "#ffb4a3",
+                    "on-secondary": "#372c3f",
+                    "surface-container-low": "#271814",
+                    "toggle-inactive": "#241A2C"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "16px",
+                    "md": "24px",
+                    "margin-mobile": "20px",
+                    "xs": "8px",
+                    "lg": "32px",
+                    "gutter": "16px",
+                    "xl": "48px",
+                    "margin-desktop": "40px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "button-text": ["Manrope"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "headline-xl": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "headline-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "button-text": ["16px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0F0A14;
+            color: #f9dcd6;
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .toggle-pill {
+            width: 56px;
+            height: 32px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .toggle-thumb {
+            width: 24px;
+            height: 24px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .active-toggle {
+            background-color: #ff5a36;
+            box-shadow: 0 0 15px rgba(255, 90, 54, 0.3);
+        }
+
+        .inactive-toggle {
+            background-color: #241A2C;
+        }
+
+        .sticker-card {
+            transform: rotate(-1deg);
+            transition: transform 0.2s ease;
+        }
+        
+        .sticker-card:active {
+            transform: scale(0.98) rotate(0deg);
+        }
+
+        .custom-separator {
+            border-bottom: 1px solid #241A2C;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky z-50 bg-background flex items-center justify-between px-margin-mobile py-sm">
+<button class="text-primary hover:opacity-80 transition-opacity active:scale-95 duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary font-extrabold text-center flex-1">
+            Bildirim tercihleri
+        </h1>
+<div class="w-[28px]"></div> <!-- Spacer for centering -->
+</header>
+<main class="flex-1 px-margin-mobile pt-sm pb-xl max-w-2xl mx-auto w-full">
+<!-- Header Visual/Sticker -->
+<div class="mb-lg flex justify-center">
+<div class="sticker-card bg-surface-container p-md rounded-xl inline-block border-2 border-primary/10">
+<span class="material-symbols-outlined text-[48px] text-primary" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+</div>
+</div>
+<!-- Notification List -->
+<div class="space-y-base bg-surface-container/30 rounded-2xl overflow-hidden">
+<!-- Row: Yeni eşleşmeler -->
+<div class="flex items-center justify-between py-md px-base custom-separator group cursor-pointer" onclick="toggleSwitch('match')">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-background font-bold">Yeni eşleşmeler</span>
+<span class="text-on-surface-variant text-label-md font-label-md opacity-60">Birisiyle eşleştiğinde haber ver</span>
+</div>
+<div class="toggle-pill active-toggle rounded-full flex items-center px-1" id="toggle-match">
+<div class="toggle-thumb bg-white rounded-full translate-x-6"></div>
+</div>
+</div>
+<!-- Row: Davetler -->
+<div class="flex items-center justify-between py-md px-base custom-separator group cursor-pointer" onclick="toggleSwitch('invites')">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-background font-bold">Davetler</span>
+<span class="text-on-surface-variant text-label-md font-label-md opacity-60">Gelen etkinlik davetlerini kaçırma</span>
+</div>
+<div class="toggle-pill active-toggle rounded-full flex items-center px-1" id="toggle-invites">
+<div class="toggle-thumb bg-white rounded-full translate-x-6"></div>
+</div>
+</div>
+<!-- Row: Mesajlar -->
+<div class="flex items-center justify-between py-md px-base custom-separator group cursor-pointer" onclick="toggleSwitch('messages')">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-background font-bold">Mesajlar</span>
+<span class="text-on-surface-variant text-label-md font-label-md opacity-60">Sana gelen yeni mesajlar</span>
+</div>
+<div class="toggle-pill active-toggle rounded-full flex items-center px-1" id="toggle-messages">
+<div class="toggle-thumb bg-white rounded-full translate-x-6"></div>
+</div>
+</div>
+<!-- Row: Oturum hatırlatmaları -->
+<div class="flex items-center justify-between py-md px-base custom-separator group cursor-pointer" onclick="toggleSwitch('sessions')">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-background font-bold">Oturum hatırlatmaları</span>
+<span class="text-on-surface-variant text-label-md font-label-md opacity-60">Planlanan görüşme zamanları</span>
+</div>
+<div class="toggle-pill inactive-toggle rounded-full flex items-center px-1" id="toggle-sessions">
+<div class="toggle-thumb bg-[#8E8694] rounded-full translate-x-0"></div>
+</div>
+</div>
+<!-- Row: Kampanyalar -->
+<div class="flex items-center justify-between py-md px-base group cursor-pointer" onclick="toggleSwitch('campaigns')">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-background font-bold">Kampanyalar</span>
+<span class="text-on-surface-variant text-label-md font-label-md opacity-60">Özel teklifler ve duyurular</span>
+</div>
+<div class="toggle-pill inactive-toggle rounded-full flex items-center px-1" id="toggle-campaigns">
+<div class="toggle-thumb bg-[#8E8694] rounded-full translate-x-0"></div>
+</div>
+</div>
+</div>
+<!-- Footer Note -->
+<div class="mt-lg text-center">
+<p class="text-on-surface-variant font-label-md text-label-md opacity-40">
+                Ayarlarını istediğin zaman bu ekrandan güncelleyebilirsin.
+            </p>
+</div>
+</main>
+<!-- Bottom Nav Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container rounded-t-xl shadow-lg md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-md text-label-md">Discover</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-md text-label-md">Matches</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-md text-label-md">Messages</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-95 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<script>
+        function toggleSwitch(id) {
+            const toggle = document.getElementById(`toggle-${id}`);
+            const thumb = toggle.querySelector('.toggle-thumb');
+            const isActive = toggle.classList.contains('active-toggle');
+
+            if (isActive) {
+                toggle.classList.remove('active-toggle');
+                toggle.classList.add('inactive-toggle');
+                toggle.style.boxShadow = 'none';
+                thumb.classList.remove('translate-x-6', 'bg-white');
+                thumb.classList.add('translate-x-0', 'bg-[#8E8694]');
+            } else {
+                toggle.classList.remove('inactive-toggle');
+                toggle.classList.add('active-toggle');
+                toggle.style.boxShadow = '0 0 15px rgba(255, 90, 54, 0.3)';
+                thumb.classList.remove('translate-x-0', 'bg-[#8E8694]');
+                thumb.classList.add('translate-x-6', 'bg-white');
+            }
+        }
+    </script>
+</body></html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#271814",
+                    "surface-dim": "#1e100d",
+                    "surface-container-lowest": "#180b08",
+                    "on-tertiary-fixed": "#001f26",
+                    "primary-fixed": "#ffdad2",
+                    "surface-container-high": "#372622",
+                    "surface-bright": "#473531",
+                    "outline-variant": "#5b403a",
+                    "error-container": "#93000a",
+                    "on-surface-variant": "#E3BEB6",
+                    "tertiary-fixed-dim": "#5fd6f1",
+                    "inverse-primary": "#b52603",
+                    "primary-container": "#ff5a36",
+                    "surface-variant": "#42312d",
+                    "on-primary": "#1A0800",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed-variant": "#004e5c",
+                    "on-secondary-container": "#c3b3cb",
+                    "on-error-container": "#ffdad6",
+                    "background": "#0F0A14",
+                    "secondary-fixed-dim": "#d1c1d9",
+                    "on-secondary-fixed": "#211829",
+                    "on-primary-fixed": "#3d0600",
+                    "surface": "#1E100D",
+                    "secondary-fixed": "#eeddf6",
+                    "on-tertiary": "#003640",
+                    "tertiary": "#5fd6f1",
+                    "on-primary-fixed-variant": "#8c1900",
+                    "secondary-container": "#504559",
+                    "on-primary-container": "#5a0c00",
+                    "surface-tint": "#ffb4a3",
+                    "primary-fixed-dim": "#ffb4a3",
+                    "surface-container-highest": "#42312d",
+                    "on-error": "#690005",
+                    "inverse-on-surface": "#3e2c28",
+                    "secondary": "#d1c1d9",
+                    "on-surface": "#f9dcd6",
+                    "outline": "#aa8982",
+                    "on-background": "#f9dcd6",
+                    "tertiary-fixed": "#aaedff",
+                    "inverse-surface": "#f9dcd6",
+                    "primary": "#ffb4a3",
+                    "tertiary-container": "#00a0ba",
+                    "on-tertiary-container": "#003039",
+                    "on-secondary-fixed-variant": "#4e4256",
+                    "surface-container": "#2b1c18",
+                    "on-secondary": "#372c3f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "margin-mobile": "20px",
+                    "xl": "48px",
+                    "gutter": "16px",
+                    "sm": "16px",
+                    "margin-desktop": "40px",
+                    "base": "4px",
+                    "lg": "32px",
+                    "xs": "8px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "headline-xl": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "headline-md": ["Manrope"],
+                    "button-text": ["Manrope"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "800"}],
+                    "button-text": ["16px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0F0A14;
+            color: #f9dcd6;
+            font-family: 'Manrope', sans-serif;
+            overflow: hidden;
+        }
+        .sticker-rotate {
+            transform: rotate(-3deg);
+        }
+        .glass-gradient {
+            background: linear-gradient(180deg, rgba(15, 10, 20, 0) 0%, rgba(15, 10, 20, 0.9) 100%);
+        }
+        .glow-orange {
+            box-shadow: 0 0 20px rgba(255, 90, 54, 0.2);
+        }
+        .active-scale:active {
+            transform: scale(0.95);
+            transition: transform 0.1s ease;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="flex flex-col h-screen max-w-[1080px] mx-auto overflow-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-margin-mobile h-16 bg-transparent">
+<div class="flex items-center">
+<!-- Stickers / Badge Style Header -->
+<div class="sticker-rotate bg-primary-container px-4 py-1 rounded-lg">
+<span class="font-headline-md text-headline-md text-on-primary">Önizleme</span>
+</div>
+</div>
+<button class="active-scale text-on-surface hover:opacity-80 transition-transform">
+<span class="material-symbols-outlined text-[32px]">close</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex items-center justify-center px-margin-mobile pt-20 pb-24">
+<!-- Profile Card Container -->
+<div class="relative w-full aspect-[3/4] max-h-[618px] rounded-[24px] overflow-hidden bg-surface-container shadow-2xl border border-white/5 transition-all duration-500 hover:rotate-1">
+<!-- Atmospheric Shader Overlay -->
+
+<!-- Profile Image -->
+<div class="w-full h-full bg-cover bg-center bg-no-repeat" data-alt="A cinematic, high-contrast portrait of a charismatic 26-year-old man with a confident expression. The lighting is moody and dramatic, featuring warm orange rim lights that contrast against a deep purple and obsidian background. The visual style is energetic and edgy, mimicking a high-end streetwear photography session for a premium lifestyle brand like Wick. The mood is modern, urban, and slightly mysterious." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAA9bbiha7ZN9phhcwqn04lue8wi5Rx3uLR2nvWjQ587S2C1XhU9UBe4cayyfVLVJM1YM1SzLQmEBNpOG6CgA-ya2i4lkoPthTEPNwETQAoewEWF6MA6KOW9KyqKXn4E6BL3ei404GuJnqwF8NdIsrhoEGpszBWTsnztvoTrERYy8O8wjd7CR0IFTZ5eIVvlVlzALnAKnz2LDFYtwYqYmjh84kBbOHHC5hHFZVRnPBRxX0y0BBIQoXl8imVIBEcKSYahM7FOrSXQz4')">
+</div>
+<!-- Gradient Information Overlay -->
+<div class="absolute bottom-0 left-0 w-full h-1/2 glass-gradient flex flex-col justify-end p-md">
+<div class="space-y-xs">
+<div class="flex items-center gap-xs">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Can, 26</h1>
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex items-center gap-base text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="font-body-md text-body-md opacity-80">2 km yakınında</span>
+</div>
+</div>
+</div>
+<!-- Profile Sticker Detail -->
+<div class="absolute top-md right-md flex flex-col gap-xs items-end">
+<div class="bg-surface-container-low/80 backdrop-blur-md p-xs rounded-xl rotate-3 border border-white/10">
+<span class="material-symbols-outlined text-primary">local_fire_department</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Area -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-center items-center py-xl bg-gradient-to-t from-background via-background/90 to-transparent">
+<div class="flex flex-col items-center gap-xs">
+<button class="flex flex-col items-center justify-center text-primary-container font-bold active-scale transition-all duration-200 group">
+<span class="material-symbols-outlined text-[28px] group-hover:scale-110 transition-transform" data-weight="fill">edit</span>
+<span class="font-button-text text-button-text uppercase tracking-wider border-b-2 border-primary-container/30 pb-0.5 mt-xs">Profili Düzenle</span>
+</button>
+</div>
+</nav>
+<!-- Background Atmospheric Elements -->
+<div class="fixed inset-0 pointer-events-none -z-10">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-container/10 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-surface-variant/20 blur-[100px] rounded-full"></div>
+</div>
+<script>
+        // Simple micro-interaction for the card tilt
+        const card = document.querySelector('.relative.rounded-\\[24px\\]');
+        if (card) {
+            document.addEventListener('mousemove', (e) => {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 50;
+                card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            });
+
+            document.addEventListener('mouseleave', () => {
+                card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+            });
+        }
+    </script>
+</body></html>

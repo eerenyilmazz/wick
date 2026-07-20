@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wick - Yeni Şifre</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#d1c1d9",
+                    "on-secondary-fixed": "#211829",
+                    "on-primary": "#1A0800",
+                    "tertiary": "#5fd6f1",
+                    "outline-variant": "#5b403a",
+                    "on-primary-fixed": "#3d0600",
+                    "tertiary-fixed-dim": "#5fd6f1",
+                    "on-surface-variant": "#e3beb6",
+                    "on-surface": "#f9dcd6",
+                    "surface-variant": "#42312d",
+                    "on-secondary": "#372c3f",
+                    "surface-tint": "#ffb4a3",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#00a0ba",
+                    "outline": "#aa8982",
+                    "on-tertiary-fixed-variant": "#004e5c",
+                    "on-tertiary-fixed": "#001f26",
+                    "on-primary-fixed-variant": "#8c1900",
+                    "surface-container-highest": "#42312d",
+                    "on-secondary-container": "#c3b3cb",
+                    "inverse-surface": "#f9dcd6",
+                    "inverse-primary": "#b52603",
+                    "secondary-fixed": "#eeddf6",
+                    "inverse-on-surface": "#3e2c28",
+                    "surface-container-high": "#372622",
+                    "surface-container-lowest": "#180b08",
+                    "on-error": "#690005",
+                    "secondary-container": "#504559",
+                    "background": "#0F0A14",
+                    "primary-container": "#ff5a36",
+                    "surface-bright": "#473531",
+                    "tertiary-fixed": "#aaedff",
+                    "secondary": "#d1c1d9",
+                    "surface-container-low": "#271814",
+                    "surface": "#1E100D",
+                    "on-primary-container": "#5a0c00",
+                    "on-tertiary": "#003640",
+                    "primary-fixed": "#ffdad2",
+                    "on-tertiary-container": "#003039",
+                    "on-secondary-fixed-variant": "#4e4256",
+                    "surface-container": "#2b1c18",
+                    "primary": "#ffb4a3",
+                    "error-container": "#93000a",
+                    "on-background": "#f9dcd6",
+                    "surface-dim": "#1e100d",
+                    "primary-fixed-dim": "#ffb4a3",
+                    "on-error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "12px",
+                    "2xl": "18px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "margin-desktop": "40px",
+                    "margin-mobile": "20px",
+                    "lg": "32px",
+                    "xl": "48px",
+                    "sm": "16px",
+                    "base": "4px",
+                    "md": "24px",
+                    "xs": "8px"
+            },
+            "fontFamily": {
+                    "button-text": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "headline-md": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "headline-xl": ["Manrope"]
+            },
+            "fontSize": {
+                    "button-text": ["16px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0F0A14;
+            font-family: 'Manrope', sans-serif;
+            color: #f9dcd6;
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden;
+        }
+
+        .input-focus-ring:focus-within {
+            outline: 2px solid #ff5a36;
+            outline-offset: 0px;
+        }
+
+        .sticker-rotate {
+            transform: rotate(-3deg);
+        }
+
+        .wick-button-shadow {
+            box-shadow: 0 4px 20px rgba(255, 90, 54, 0.3);
+        }
+
+        .wick-button-active:active {
+            transform: scale(0.95);
+        }
+
+        /* Material Symbols Customization */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Prevent scroll on mobile, height fix */
+        .full-viewport {
+            height: 100dvh;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary">
+<main class="full-viewport flex flex-col px-margin-mobile relative">
+<!-- Header Section -->
+<header class="pt-xl pb-md">
+<button aria-label="Geri" class="w-12 h-12 flex items-center justify-start text-on-background active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined text-[32px]">arrow_back</span>
+</button>
+<div class="mt-lg">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-white tracking-tighter">
+                    Yeni şifre belirle
+                </h1>
+<p class="text-on-surface-variant font-body-md text-body-md mt-xs opacity-80">
+                    En az 8 karakter olmalı
+                </p>
+</div>
+</header>
+<!-- Form Section -->
+<section class="flex-grow space-y-md mt-sm">
+<!-- Password Field 1 -->
+<div class="space-y-xs">
+<label class="text-label-md font-label-md text-on-surface-variant ml-1" for="new_password">Yeni şifre</label>
+<div class="relative group input-focus-ring bg-[#241A2C] rounded-[18px] transition-all duration-200">
+<input class="w-full bg-transparent border-none focus:ring-0 px-md py-lg text-white font-body-lg text-body-lg placeholder:text-on-surface-variant/30" id="new_password" placeholder="••••••••" type="password"/>
+<button class="absolute right-md top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors" onclick="togglePassword('new_password', this)" type="button">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Password Field 2 -->
+<div class="space-y-xs">
+<label class="text-label-md font-label-md text-on-surface-variant ml-1" for="confirm_password">Yeni şifreyi tekrar gir</label>
+<div class="relative group input-focus-ring bg-[#241A2C] rounded-[18px] transition-all duration-200">
+<input class="w-full bg-transparent border-none focus:ring-0 px-md py-lg text-white font-body-lg text-body-lg placeholder:text-on-surface-variant/30" id="confirm_password" placeholder="••••••••" type="password"/>
+<button class="absolute right-md top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors" onclick="togglePassword('confirm_password', this)" type="button">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Atmospheric Decoration (Subtle Brand Sticker) -->
+<div class="pt-lg flex justify-center opacity-20 pointer-events-none">
+<div class="w-16 h-16 bg-surface-container rounded-2xl flex items-center justify-center sticker-rotate">
+<span class="material-symbols-outlined text-primary text-[40px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+</div>
+</section>
+<!-- Fixed Bottom Button -->
+<footer class="pb-xl pt-md">
+<button class="w-full bg-primary-container text-on-primary font-button-text text-button-text py-lg rounded-full wick-button-shadow wick-button-active hover:brightness-110 transition-all duration-200 flex items-center justify-center gap-xs" onclick="handleUpdate()">
+<span>Şifreyi güncelle</span>
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</button>
+</footer>
+</main>
+<!-- Success Feedback Overlay (Hidden by Default) -->
+<div class="fixed inset-0 bg-background/95 z-[100] flex flex-col items-center justify-center px-margin-mobile opacity-0 pointer-events-none transition-opacity duration-300" id="success-overlay">
+<div class="w-24 h-24 bg-primary-container rounded-full flex items-center justify-center mb-md scale-50 transition-transform duration-500" id="success-icon">
+<span class="material-symbols-outlined text-on-primary text-[48px]" style="font-variation-settings: 'FILL' 1;">done_all</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-white text-center">Şifre Başarıyla Güncellendi!</h2>
+<p class="text-on-surface-variant text-body-md text-center mt-sm">Artık yeni şifrenle giriş yapabilirsin.</p>
+</div>
+<script>
+        function togglePassword(inputId, btn) {
+            const input = document.getElementById(inputId);
+            const icon = btn.querySelector('.material-symbols-outlined');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.textContent = 'visibility_off';
+            } else {
+                input.type = 'password';
+                icon.textContent = 'visibility';
+            }
+            
+            // Micro-interaction
+            btn.classList.add('scale-125');
+            setTimeout(() => btn.classList.remove('scale-125'), 150);
+        }
+
+        function handleUpdate() {
+            const pass1 = document.getElementById('new_password').value;
+            const pass2 = document.getElementById('confirm_password').value;
+
+            if (pass1.length < 8) {
+                alert("Şifre en az 8 karakter olmalıdır.");
+                return;
+            }
+
+            if (pass1 !== pass2) {
+                alert("Şifreler eşleşmiyor.");
+                return;
+            }
+
+            // Simulate success
+            const overlay = document.getElementById('success-overlay');
+            const icon = document.getElementById('success-icon');
+            
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                icon.classList.remove('scale-50');
+                icon.classList.add('scale-100');
+            }, 50);
+
+            // Mock redirect
+            setTimeout(() => {
+                window.location.reload();
+            }, 2500);
+        }
+
+        // Handle focus states for accessibility/UX
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('brightness-125');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('brightness-125');
+            });
+        });
+    </script>
+</body></html>

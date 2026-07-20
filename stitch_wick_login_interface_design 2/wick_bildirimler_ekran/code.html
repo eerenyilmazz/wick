@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Wick - Bildirimler</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#5fd6f1",
+                    "surface-container": "#2b1c18",
+                    "secondary-container": "#504559",
+                    "on-primary-fixed-variant": "#8c1900",
+                    "surface-container-high": "#372622",
+                    "on-secondary-fixed": "#211829",
+                    "on-surface-variant": "#E3BEB6",
+                    "on-error": "#690005",
+                    "on-secondary-container": "#c3b3cb",
+                    "error-container": "#93000a",
+                    "secondary-fixed": "#eeddf6",
+                    "surface": "#1E100D",
+                    "surface-container-low": "#271814",
+                    "on-primary": "#630f00",
+                    "tertiary-fixed-dim": "#5fd6f1",
+                    "on-secondary-fixed-variant": "#4e4256",
+                    "surface-container-highest": "#42312d",
+                    "on-tertiary-fixed": "#001f26",
+                    "on-background": "#f9dcd6",
+                    "surface-bright": "#473531",
+                    "error": "#ffb4ab",
+                    "primary-fixed": "#ffdad2",
+                    "surface-container-lowest": "#180b08",
+                    "inverse-on-surface": "#3e2c28",
+                    "on-primary-container": "#5a0c00",
+                    "on-tertiary-fixed-variant": "#004e5c",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-container": "#003039",
+                    "background": "#0F0A14",
+                    "secondary-fixed-dim": "#d1c1d9",
+                    "on-tertiary": "#003640",
+                    "tertiary-container": "#00a0ba",
+                    "surface-dim": "#1e100d",
+                    "primary-fixed-dim": "#ffb4a3",
+                    "inverse-primary": "#b52603",
+                    "surface-variant": "#42312d",
+                    "on-secondary": "#372c3f",
+                    "outline-variant": "#5B403A",
+                    "surface-tint": "#ffb4a3",
+                    "inverse-surface": "#f9dcd6",
+                    "primary-container": "#ff5a36",
+                    "secondary": "#d1c1d9",
+                    "outline": "#aa8982",
+                    "tertiary-fixed": "#aaedff",
+                    "primary": "#ffb4a3",
+                    "on-surface": "#f9dcd6",
+                    "on-primary-fixed": "#3d0600"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "48px",
+                    "margin-desktop": "40px",
+                    "xs": "8px",
+                    "lg": "32px",
+                    "gutter": "16px",
+                    "md": "24px",
+                    "base": "4px",
+                    "margin-mobile": "20px",
+                    "sm": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "headline-xl": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "button-text": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "button-text": ["16px", {"lineHeight": "24px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #0F0A14;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+        }
+        .sticker-rotate-1 { transform: rotate(-2deg); }
+        .sticker-rotate-2 { transform: rotate(3deg); }
+        .notification-card {
+            background-color: #241A2C;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .notification-card:active {
+            transform: scale(0.97);
+            background-color: #2d2138;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-background flex justify-between items-center px-margin-mobile h-16">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary text-headline-md hover:opacity-80 transition-opacity active:scale-95 transition-transform">menu</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-black text-primary italic tracking-tighter">BİLDİRİMLER</h1>
+</div>
+<button class="material-symbols-outlined text-primary text-headline-md hover:opacity-80 transition-opacity active:scale-95 transition-transform">settings</button>
+</header>
+<!-- Main Content -->
+<main class="flex-1 px-margin-mobile pt-4 pb-32">
+<!-- Animated Background Element (Optional vibe) -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 opacity-20 pointer-events-none">
+
+</div>
+<!-- Section Title (Modern sub-header) -->
+<div class="flex justify-between items-end mb-6">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest opacity-60">Bugün</span>
+<span class="text-xs font-bold text-primary underline underline-offset-4 decoration-primary/30">Tümünü Oku</span>
+</div>
+<!-- Notifications List -->
+<div class="flex flex-col gap-base"> <!-- Gap 4px base, but custom 10px requested -->
+<div class="space-y-[10px]">
+<!-- Notification Card 1: New Match -->
+<div class="notification-card p-4 rounded-[16px] flex items-center gap-4 relative overflow-hidden group">
+<div class="w-12 h-12 flex-shrink-0 bg-primary-container/20 rounded-xl flex items-center justify-center sticker-rotate-1">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-background leading-tight">
+<span class="font-extrabold text-primary">Defne</span> seni beğendi! Hemen eşleş.
+                        </p>
+<p class="mt-1 font-label-md text-[12px] text-on-secondary-fixed-variant">5 dakika önce</p>
+</div>
+<div class="w-3 h-3 bg-primary-container rounded-full shadow-[0_0_10px_rgba(255,90,54,0.6)]"></div>
+</div>
+<!-- Notification Card 2: Invite -->
+<div class="notification-card p-4 rounded-[16px] flex items-center gap-4 group">
+<div class="w-12 h-12 flex-shrink-0 bg-tertiary-container/20 rounded-xl flex items-center justify-center sticker-rotate-2">
+<span class="material-symbols-outlined text-tertiary text-3xl" style="font-variation-settings: 'FILL' 1;">chat</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-background leading-tight">
+                            Yeni bir mesajın var: <span class="opacity-80">"Selam, profilini çok sevdim!"</span>
+</p>
+<p class="mt-1 font-label-md text-[12px] text-on-secondary-fixed-variant">12 dakika önce</p>
+</div>
+<div class="w-3 h-3 bg-primary-container rounded-full shadow-[0_0_10px_rgba(255,90,54,0.6)]"></div>
+</div>
+<!-- Notification Card 3: Match Success -->
+<div class="notification-card p-4 rounded-[16px] flex items-center gap-4 sticker-rotate-1">
+<div class="w-12 h-12 flex-shrink-0 bg-primary-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-3xl" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-background leading-tight">
+<span class="font-extrabold">Yeni Eşleşme!</span> Can ve sen artık birbirinizi görebilirsiniz.
+                        </p>
+<p class="mt-1 font-label-md text-[12px] text-on-secondary-fixed-variant">1 saat önce</p>
+</div>
+</div>
+<!-- Older Section -->
+<div class="pt-6 mb-4">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest opacity-60">Dün</span>
+</div>
+<!-- Notification Card 4: Session Reminder -->
+<div class="notification-card p-4 rounded-[16px] flex items-center gap-4 opacity-70">
+<div class="w-12 h-12 flex-shrink-0 bg-secondary-container/30 rounded-xl flex items-center justify-center sticker-rotate-2">
+<span class="material-symbols-outlined text-secondary text-3xl">schedule</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-background leading-tight">
+                            Oturumun bitmek üzere. Profilini güncellemeye ne dersin?
+                        </p>
+<p class="mt-1 font-label-md text-[12px] text-on-secondary-fixed-variant">22 saat önce</p>
+</div>
+</div>
+<!-- Notification Card 5: Promo -->
+<div class="notification-card p-4 rounded-[16px] flex items-center gap-4 border border-primary/20 shadow-lg shadow-primary/5">
+<div class="w-12 h-12 flex-shrink-0 bg-primary-container/20 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">bolt</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-background leading-tight">
+<span class="font-extrabold text-primary">Wick Pro</span> avantajlarını kaçırma. Şimdi %50 indirimli!
+                        </p>
+<p class="mt-1 font-label-md text-[12px] text-on-secondary-fixed-variant">1 gün önce</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Suggestion Section (Bento style) -->
+<div class="mt-12 mb-6">
+<h2 class="font-headline-md text-headline-md text-primary mb-4 italic">Kimi Kaçırdın?</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="relative h-48 rounded-2xl overflow-hidden group active:scale-95 transition-transform">
+<div class="bg-cover bg-center w-full h-full" data-alt="A moody, high-contrast portrait of a stylish young woman in urban Tokyo at night, lit by neon signs. The lighting is dominated by deep purples and high-chroma orange glows, consistent with the Wick brand aesthetic. The photography is cinematic, with a soft blur on the background and sharp focus on her energetic expression." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCg8UX20GSDwvpnlAoS8GYTe3B6XYYSA8CWkxmwp0oD_C4LL7Qj30yYVXTKg983TV-2Pw3RlN_rhr4GN-J-QB2R788oASVjYX55uAfzQKbudEjsX3qqSVXqZyWjroUGtj09qX0O13HSmoxw1Sk6J54cMU93dZLuMtW8p2Vf4QO-jBEoSgZ1OT25widsPaiGUj59MGE4RqUVyC-xIiotbMMFE1mFG1whvpCz-ppd1H3aYzcJAMWXVDMvUi9Vc9O-h1Naopkv-9Ti_mM')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
+<div class="absolute bottom-3 left-3">
+<p class="text-sm font-black text-on-background">Selin, 24</p>
+</div>
+</div>
+<div class="relative h-48 rounded-2xl overflow-hidden group active:scale-95 transition-transform sticker-rotate-2">
+<div class="bg-cover bg-center w-full h-full" data-alt="A dynamic, low-angle shot of an edgy man wearing a dark streetwear hoodie, standing against a wall with glowing orange graffiti. The atmosphere is dark and moody, following the high-contrast obsidian aesthetic of the Wick app. His face is partially lit by a warm, flame-like light source, creating a bold and mysterious vibe." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAd-xy5gsf1-AqMTGZkHMtCQO986P0wwnhL47cNFJy7elvietm1zcUaMaWSHsjXgcamFbfUE2n8K4Ohu9RNAPiC-F7t8TJJgJYZTcKeXSIq8HjCEmdBsxZw69x7vypA8TZfbxi3VRWk0Ud0eIqB6DTTlY1VDGhgIkEJmGIJSJg-kuLJBAQZNhwMGYvLIoqaFNdXwSBLWteJsUG2qUohPiNIhYevaTlQSuBT-pk10u9csR8kxXWBcuxQoL4dNa4-5t4QeGyKTe8hX3M')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
+<div class="absolute bottom-3 left-3">
+<p class="text-sm font-black text-on-background">Mert, 27</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest flex justify-around items-center h-20 pb-safe px-margin-mobile shadow-lg shadow-primary/10">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary/80 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-2xl">local_fire_department</span>
+<span class="font-label-md text-label-md mt-1">Keşfet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary/80 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+<span class="font-label-md text-label-md mt-1">Eşleş</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="font-label-md text-label-md mt-1">Bildirimler</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary/80 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-2xl">person</span>
+<span class="font-label-md text-label-md mt-1">Profil</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for marking all as read visually
+        document.querySelectorAll('.notification-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const dot = card.querySelector('.w-3.h-3');
+                if (dot) {
+                    dot.style.opacity = '0';
+                    dot.style.transition = 'opacity 0.5s ease';
+                    setTimeout(() => dot.remove(), 500);
+                }
+            });
+        });
+
+        // Sticky header behavior
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            header.style.transition = 'transform 0.3s ease-in-out';
+            lastScroll = currentScroll;
+        });
+    </script>
+</body></html>
