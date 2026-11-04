@@ -204,3 +204,9 @@ POST /internal/verify/{userId}/reject
 | TODO-18 | WebSocket behaviour in background | Needs on-device testing |
 
 See [`BUGS.md`](BUGS.md) for the tracked bug list.
+
+---
+
+## License
+
+Copyright (c) 2026 Eren Yılmaz. All rights reserved. The source is publicly visible for evaluation only; see [`LICENSE`](LICENSE). To request permission to use any part of it, contact eerenyilmazz1@gmail.com.
