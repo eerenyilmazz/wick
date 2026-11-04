@@ -45,7 +45,7 @@ class NotificationServiceImplTest {
 
         notificationService.notifyInvitationReceived(recipient, sender);
 
-        verify(notificationSender).send("device-token-1", "New chat invitation", "Sender wants to start a chat with you");
+        verify(notificationSender).send("device-token-1", "Yeni sohbet daveti", "Sender seninle sohbet başlatmak istiyor", "INVITE");
     }
 
     @Test
@@ -55,7 +55,7 @@ class NotificationServiceImplTest {
 
         notificationService.notifyInvitationReceived(recipient, sender);
 
-        verify(notificationSender, never()).send(any(), any(), any());
+        verify(notificationSender, never()).send(any(), any(), any(), any());
     }
 
     @Test
@@ -66,8 +66,8 @@ class NotificationServiceImplTest {
 
         notificationService.notifySessionLocked(user, sessionId);
 
-        verify(notificationSender).send("device-token-2", "Chat ended",
-                "Your chat session has ended. Extend it with tokens to keep talking.");
+        verify(notificationSender).send("device-token-2", "Sohbet sona erdi",
+                "Sohbet oturumun sona erdi. Konuşmaya devam etmek için token ile uzat.", "SESSION_LOCKED");
     }
 
     @Test
@@ -78,8 +78,8 @@ class NotificationServiceImplTest {
 
         notificationService.notifySessionEndingSoon(user, sessionId, 120);
 
-        verify(notificationSender).send("device-token-3", "Chat ending soon",
-                "Your chat session ends in 2 minute(s).");
+        verify(notificationSender).send("device-token-3", "Sohbet bitiyor",
+                "Sohbet oturumun 2 dakika içinde sona erecek.", "SESSION_REMINDER");
     }
 
     @Test
@@ -90,7 +90,7 @@ class NotificationServiceImplTest {
 
         notificationService.notifySessionEndingSoon(user, sessionId, 45);
 
-        verify(notificationSender).send("device-token-4", "Chat ending soon",
-                "Your chat session ends in 45 second(s).");
+        verify(notificationSender).send("device-token-4", "Sohbet bitiyor",
+                "Sohbet oturumun 45 saniye içinde sona erecek.", "SESSION_REMINDER");
     }
 }

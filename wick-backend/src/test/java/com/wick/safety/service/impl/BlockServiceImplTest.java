@@ -31,6 +31,12 @@ class BlockServiceImplTest {
     @Mock
     private UserService userService;
 
+    @Mock
+    private com.wick.match.repository.MatchRepository matchRepository;
+
+    @Mock
+    private com.wick.session.repository.SessionRepository sessionRepository;
+
     private BlockServiceImpl blockService;
 
     private UUID blockerId;
@@ -38,7 +44,7 @@ class BlockServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        blockService = new BlockServiceImpl(blockRepository, userService);
+        blockService = new BlockServiceImpl(blockRepository, userService, matchRepository, sessionRepository);
         blockerId = UUID.randomUUID();
         blockedId = UUID.randomUUID();
     }

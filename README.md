@@ -6,6 +6,7 @@
 
 Discover people, match, send an invitation — and talk before the flame burns out.
 
+[![CI](https://github.com/eerenyilmazz/wick/actions/workflows/ci.yml/badge.svg)](https://github.com/eerenyilmazz/wick/actions/workflows/ci.yml)
 ![Android](https://img.shields.io/badge/Android-Jetpack_Compose-3DDC84?logo=android&logoColor=white)
 ![Kotlin](https://img.shields.io/badge/Kotlin-Hilt_·_Retrofit_·_Room-7F52FF?logo=kotlin&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5-6DB33F?logo=springboot&logoColor=white)

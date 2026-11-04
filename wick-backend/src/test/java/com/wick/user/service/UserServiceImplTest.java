@@ -58,6 +58,12 @@ class UserServiceImplTest {
     @Mock
     private DiscoveryPreferenceRepository discoveryPreferenceRepository;
 
+    @Mock
+    private com.wick.user.repository.PasswordResetTokenRepository passwordResetTokenRepository;
+
+    @Mock
+    private com.wick.token.service.impl.TokenBalanceInitializer tokenBalanceInitializer;
+
     private UserServiceImpl userService;
 
     @org.junit.jupiter.api.BeforeEach
@@ -65,7 +71,7 @@ class UserServiceImplTest {
         UserProperties userProperties = new UserProperties();
         userProperties.setMinimumAge(18);
         userProperties.setMaximumAge(100);
-        userService = new UserServiceImpl(userRepository, passwordEncoder, userProperties, eventLogService, legalService, authRateLimiter, locationService, discoveryPreferenceRepository);
+        userService = new UserServiceImpl(userRepository, passwordEncoder, userProperties, eventLogService, legalService, authRateLimiter, locationService, discoveryPreferenceRepository, passwordResetTokenRepository, tokenBalanceInitializer);
     }
 
     @Test
@@ -196,22 +202,21 @@ class UserServiceImplTest {
     }
 
     @Test
-    void deleteAccount_scrubsPiiAndMarksDeleted() {
+    void deleteAccount_softDeletesAndKeepsCredentialsForRecoveryWindow() {
         User user = TestEntities.user("eren@example.com", "stored-hash", "Eren");
         ReflectionTestUtils.setField(user, "id", UUID.randomUUID());
         user.setBio("some bio");
         user.setFcmToken("some-fcm-token");
         when(userRepository.findById(user.getId())).thenReturn(Optional.of(user));
         when(passwordEncoder.matches("stored-password", "stored-hash")).thenReturn(true);
-        when(passwordEncoder.encode(anyString())).thenReturn("unusable-hash");
         when(userRepository.save(any(User.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
         userService.deleteAccount(user.getId(), "stored-password");
 
         assertThat(user.getDeletedAt()).isNotNull();
-        assertThat(user.getEmail()).contains("deleted-");
-        assertThat(user.getBio()).isNull();
+        assertThat(user.getEmail()).isEqualTo("eren@example.com");
+        assertThat(user.getBio()).isEqualTo("some bio");
         assertThat(user.getFcmToken()).isNull();
-        assertThat(user.getDisplayName()).isEqualTo("Deleted User");
+        assertThat(user.getDisplayName()).isEqualTo("Eren");
     }
 }

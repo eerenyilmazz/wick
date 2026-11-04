@@ -1,5 +1,6 @@
 package com.wick.invitation.service;
 
+import com.wick.invitation.config.InvitationProperties;
 import com.wick.testsupport.TestEntities;
 
 import com.wick.common.exception.ApiException;
@@ -75,7 +76,7 @@ class InvitationServiceImplTest {
         tokenProperties.setExtraInvitationCost(1);
 
         invitationService = new InvitationServiceImpl(invitationRepository, matchService, userService,
-                invitationRateLimiter, sessionService, tokenService, tokenProperties, notificationService, blockService);
+                invitationRateLimiter, sessionService, tokenService, tokenProperties, new InvitationProperties(), notificationService, blockService);
         sender = TestEntities.user("sender@example.com", "hash", "Sender");
         recipient = TestEntities.user("recipient@example.com", "hash", "Recipient");
         ReflectionTestUtils.setField(sender, "id", UUID.randomUUID());

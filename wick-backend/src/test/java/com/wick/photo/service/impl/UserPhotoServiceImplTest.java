@@ -65,7 +65,7 @@ class UserPhotoServiceImplTest {
     }
 
     private MultipartFile jpegFile() {
-        return new MockMultipartFile("file", "photo.jpg", "image/jpeg", new byte[]{1, 2, 3});
+        return new MockMultipartFile("file", "photo.jpg", "image/jpeg", new byte[]{(byte) 0xFF, (byte) 0xD8, (byte) 0xFF, 1});
     }
 
     @Test
