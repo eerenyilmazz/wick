@@ -32,7 +32,8 @@ class SessionRepositoryIntegrationTest extends AbstractIntegrationTest {
         User userA = userRepository.save(TestEntities.user("session-repo-a@wick.com", "hash", "A"));
         User userB = userRepository.save(TestEntities.user("session-repo-b@wick.com", "hash", "B"));
         Match match = matchRepository.save(TestEntities.match(userA, userB));
-        Instant now = Instant.now();
+        // PostgreSQL stores microseconds; Linux Instant.now() has nanoseconds
+        Instant now = Instant.now().truncatedTo(java.time.temporal.ChronoUnit.MICROS);
         return sessionRepository.saveAndFlush(TestEntities.session(match, now, now.plusSeconds(60)));
     }
 
