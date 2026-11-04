@@ -33,8 +33,6 @@ Wick replaces endless open-ended chats with **sessions that expire**. Two users 
 
 <p align="center"><sub>Sign in · Discover · Matches · Timed chat · Profile detail · Token wallet</sub></p>
 
-> These are the UI design screens the Android app is built from. The full set of 40+ screens lives in [`stitch_wick_login_interface_design 2/`](stitch_wick_login_interface_design%202/).
-
 ## Features
 
 - **Discover & swipe** — distance-aware discovery with age, distance and gender filters, plus super likes.
