@@ -37,7 +37,7 @@ Wick replaces endless open-ended chats with **sessions that expire**. Two users 
 
 - **Discover & swipe** — distance-aware discovery with age, distance and gender filters, plus super likes.
 - **Matches & invitations** — mutual likes create a match; invitations open a chat session.
-- **Time-limited chat** — real-time messaging over WebSocket/STOMP with a visible countdown (24 h by default) and token-based extensions.
+- **Time-limited chat** — real-time messaging over WebSocket/STOMP with a visible countdown (20 minutes by default, 40 for premium users) and token-based extensions.
 - **Token economy** — daily login rewards, verification bonus and in-app purchases via Google Play Billing.
 - **Identity verification** — selfie upload, automated face matching and manual admin approval for a verified badge.
 - **Safety** — blocking and reporting, legal consent tracking (KVKK / terms of use), rate limits on auth, swipes and invitations.
@@ -116,6 +116,75 @@ Every domain package follows the same layout:
 - Errors are raised as `ApiException(message, HttpStatus)` and handled centrally by `GlobalExceptionHandler`; an insufficient token balance raises `InsufficientTokensException` (HTTP 402).
 - Schema changes are Flyway migrations in `src/main/resources/db/migration/V{n}__{description}.sql`.
 
+### Configuration
+
+Spring Boot relaxed binding maps every property in `application.properties` to an environment variable (`app.jwt.secret` → `APP_JWT_SECRET`). The ones you will most likely change:
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `POSTGRES_DB`, `POSTGRES_USER`, `POSTGRES_PASSWORD` | `wick` | Credentials used by `docker-compose.yml` (see `.env.example`) |
+| `SPRING_DATASOURCE_URL` / `_USERNAME` / `_PASSWORD` | `jdbc:postgresql://localhost:5432/wick`, `wick`, `wick` | Database connection |
+| `SPRING_DATA_REDIS_HOST`, `SPRING_DATA_REDIS_PORT` | `localhost`, `6379` | Redis connection |
+| `APP_JWT_SECRET` | placeholder | **Required in production.** Generate with `openssl rand -base64 64` |
+| `APP_INTERNAL_SECRET` | placeholder | Value expected in the `X-Internal-Key` header of the internal admin API |
+| `APP_CORS_ALLOWED_ORIGINS` | empty | Comma-separated allowed origins |
+| `APP_NOTIFICATION_PROVIDER`, `APP_NOTIFICATION_SERVICE_ACCOUNT_KEY_PATH` | `firebase`, `./firebase-service-account.json` | Firebase Cloud Messaging credentials |
+| `APP_BILLING_PROVIDER`, `APP_BILLING_GOOGLE_PLAY_SERVICE_ACCOUNT_KEY_PATH` | `mock`, empty | Billing backend (`mock` for local development) |
+| `APP_PHOTO_STORAGE_PATH` | `./data/photos` | Where uploaded photos are stored |
+| `APP_SYSTEM_MAINTENANCE_MODE`, `APP_SYSTEM_MIN_VERSION` | `false`, `0.1.0` | Maintenance and forced-update switches reported to the app |
+
+Session length, token costs, rate limits and invitation limits are also configurable under the `app.session.*`, `app.token.*`, `app.auth.*`, `app.match.*` and `app.invitation.*` prefixes. The defaults for secrets are placeholders — never deploy with them.
+
+### Redis keyspace notifications
+
+Chat session expiry is driven by Redis key TTLs. The backend subscribes to Redis keyspace expiry events (`SessionExpirationListener`), so Redis **must** run with expired-event notifications enabled:
+
+```bash
+redis-server --notify-keyspace-events Ex
+```
+
+`docker-compose.yml` already starts Redis this way. For a Redis instance you manage yourself, set it at runtime with `redis-cli config set notify-keyspace-events Ex` or add `notify-keyspace-events Ex` to `redis.conf`. Managed services (for example ElastiCache) usually expose this as a parameter-group setting. If notifications are disabled, a periodic fallback job (`SessionExpirationFallbackJob`, every 60 s by default) still locks expired sessions, but with a delay.
+
+### Face verification daemon (DeepFace)
+
+Selfie verification is processed by a separate Python process, `wick-backend/face_verify.py`. It polls PostgreSQL for users with `PENDING` verification, compares the selfie against their profile photos with DeepFace (Facenet512 model, RetinaFace detector, cosine distance), and calls the backend's `/internal/verify/{userId}/approve` or `/reject` endpoint.
+
+Requirements: Python 3.9+ and the packages `deepface`, `psycopg2-binary` and `requests`. DeepFace downloads its model weights on first use, so allow some time and network access for the first run.
+
+```bash
+cd wick-backend
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install deepface psycopg2-binary requests
+export INTERNAL_KEY=<same value as APP_INTERNAL_SECRET>
+python face_verify.py
+```
+
+The daemon is configured through environment variables:
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `DB_URL` | `postgresql://wick:wick@localhost:5432/wick` | PostgreSQL connection string |
+| `PHOTO_DIR` | `./data/photos` | Photo storage directory (must match `APP_PHOTO_STORAGE_PATH`) |
+| `BACKEND_URL` | `http://localhost:8080` | Backend base URL |
+| `INTERNAL_KEY` | placeholder | Must equal the backend's `app.internal.secret` |
+| `POLL_INTERVAL` | `60` | Seconds between polls |
+| `MATCH_THRESHOLD` | `0.6` | Maximum cosine distance accepted as a match |
+
+Applications still pending after 7 days are rejected automatically by `VerificationTimeoutScheduler`.
+
+### Running backend tests
+
+```bash
+cd wick-backend
+./mvnw test
+```
+
+Unit tests use Mockito. Integration tests extend `AbstractIntegrationTest`, which starts throw-away PostgreSQL 16 and Redis 7 containers through Testcontainers, so **Docker must be running**. CI (`.github/workflows/ci.yml`) runs `./mvnw test -B` with JDK 17 on every pull request. To run a single class:
+
+```bash
+./mvnw test -Dtest=JwtServiceTest
+```
+
 ### Android
 
 ```
@@ -137,7 +206,7 @@ Screen (Compose)
 |---|---|
 | Onboarding | Sign up → profile setup → discover |
 | Matching | Like + mutual like → match → invitation → session → chat |
-| Session length | 24 hours from opening by default; extendable by spending tokens |
+| Session length | 20 minutes (40 for premium users) from opening by default; extendable in 10-minute steps by spending tokens |
 | Super like | Costs 1 token and sends the recipient a dedicated notification |
 | Verification | Selfie upload → automated face check → admin approval → verified badge |
 | Earning tokens | Daily login, verification bonus, purchases |
