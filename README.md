@@ -1,163 +1,208 @@
-# Wick — Proje README
+<div align="center">
 
-## Nedir?
+# 🔥 Wick
 
-Wick, zaman sınırlı sohbet odaları üzerine kurulu bir mobil tanışma uygulamasıdır. Kullanıcılar birbirini keşfeder, eşleşir, davet gönderir ve belirli bir süre içinde sohbet eder. Süre dolunca oturum kilitlenir.
+**A mobile dating app built around time-limited chat sessions.**
+
+Discover people, match, send an invitation — and talk before the flame burns out.
+
+![Android](https://img.shields.io/badge/Android-Jetpack_Compose-3DDC84?logo=android&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Kotlin-Hilt_·_Retrofit_·_Room-7F52FF?logo=kotlin&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5-6DB33F?logo=springboot&logoColor=white)
+![Java](https://img.shields.io/badge/Java-17-ED8B00?logo=openjdk&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?logo=postgresql&logoColor=white)
+
+</div>
 
 ---
 
-## Teknoloji Yığını
+## Overview
 
-| Katman | Teknoloji |
+Wick replaces endless open-ended chats with **sessions that expire**. Two users who like each other become a match; one of them sends an invitation, and once it is accepted a chat session opens with a countdown. When the timer runs out the session locks — unless someone spends tokens to extend it.
+
+## Screenshots
+
+<p align="center">
+  <img src="docs/screenshots/login.png" width="15%" alt="Sign in" />
+  <img src="docs/screenshots/discover.png" width="15%" alt="Discover" />
+  <img src="docs/screenshots/matches.png" width="15%" alt="Matches" />
+  <img src="docs/screenshots/timed-chat.png" width="15%" alt="Timed chat" />
+  <img src="docs/screenshots/profile-detail.png" width="15%" alt="Profile detail" />
+  <img src="docs/screenshots/token-wallet.png" width="15%" alt="Token wallet" />
+</p>
+
+<p align="center"><sub>Sign in · Discover · Matches · Timed chat · Profile detail · Token wallet</sub></p>
+
+> These are the UI design screens the Android app is built from. The full set of 40+ screens lives in [`stitch_wick_login_interface_design 2/`](stitch_wick_login_interface_design%202/).
+
+## Features
+
+- **Discover & swipe** — distance-aware discovery with age, distance and gender filters, plus super likes.
+- **Matches & invitations** — mutual likes create a match; invitations open a chat session.
+- **Time-limited chat** — real-time messaging over WebSocket/STOMP with a visible countdown (24 h by default) and token-based extensions.
+- **Token economy** — daily login rewards, verification bonus and in-app purchases via Google Play Billing.
+- **Identity verification** — selfie upload, automated face matching and manual admin approval for a verified badge.
+- **Safety** — blocking and reporting, legal consent tracking (KVKK / terms of use), rate limits on auth, swipes and invitations.
+- **Notifications** — Firebase Cloud Messaging push plus an in-app inbox.
+
+## Tech Stack
+
+| Layer | Technology |
 |---|---|
-| Backend | Java 17 · Spring Boot 3.5.0 · Maven |
-| Veritabanı | PostgreSQL 16 · Flyway (migrations) |
-| Android | Kotlin · Jetpack Compose · Hilt · Retrofit · Room |
-| Gerçek zamanlı | WebSocket / STOMP |
-| Push bildirimleri | Firebase Cloud Messaging (FCM) |
-| Auth | JWT (access + refresh token) |
+| Android | Kotlin · Jetpack Compose · Hilt · Retrofit · Room · Google Play Billing (minSdk 26, targetSdk 36) |
+| Backend | Java 17 · Spring Boot 3.5 · Maven |
+| Database | PostgreSQL 16 · Flyway migrations |
+| Cache / timers | Redis 7 (keyspace expiry events) |
+| Real-time | WebSocket / STOMP |
+| Push | Firebase Cloud Messaging |
+| Auth | JWT access + refresh tokens |
+| Face verification | Python daemon using DeepFace (`wick-backend/face_verify.py`) |
 
----
-
-## Proje Yapısı
+## Project Structure
 
 ```
-WICK/
-├── wick-backend/          # Spring Boot API
+wick/
+├── wick-backend/              Spring Boot API
 │   └── src/main/java/com/wick/
-│       ├── user/          # Kayıt, giriş, profil, lokasyon, doğrulama
-│       ├── match/         # Keşfet, swipe, eşleşme
-│       ├── session/       # Sohbet oturumları, mesajlar, WebSocket
-│       ├── invitation/    # Davet gönder / kabul et / reddet
-│       ├── notification/  # FCM push + inbox bildirimleri
-│       ├── token/         # Jeton bakiyesi, harcama, kazanma
-│       ├── safety/        # Engelleme, şikayet
-│       ├── photo/         # Fotoğraf yükleme, sıralama
-│       ├── legal/         # KVKK/Kullanım koşulları onayları
-│       ├── payment/       # Satın alma (in-app purchase)
-│       ├── config/        # Uygulama konfigürasyonu (AppConfig)
-│       ├── location/      # Mesafe hesaplama
-│       └── eventlog/      # İç olay kaydı
+│       ├── user/              registration, login, profile, location, verification
+│       ├── match/             discovery, swipes, matches
+│       ├── session/           chat sessions, messages, WebSocket
+│       ├── invitation/        send / accept / decline
+│       ├── notification/      FCM push + inbox
+│       ├── token/             balance, spending, rewards
+│       ├── safety/            blocking, reporting
+│       ├── photo/             upload, ordering
+│       ├── legal/             consent records
+│       ├── payment/           in-app purchases
+│       ├── config/            application configuration
+│       ├── location/          distance calculation
+│       └── eventlog/          internal event log
 │
-└── wick-android/          # Jetpack Compose uygulaması
-    ├── app/               # Ana modül, DI, FCM servisi
-    ├── core/
-    │   ├── model/         # Domain modelleri (User, Match, …)
-    │   ├── network/       # Retrofit API'ları, DTO'lar
-    │   ├── data/          # Repository implementasyonları
-    │   ├── designsystem/  # WickColors, WickTextStyles, WickShapes, bileşenler
-    │   └── billing/       # Google Play Billing
-    └── feature/
-        ├── auth/          # Giriş, kayıt, şifre sıfırlama
-        ├── discover/      # Keşfet ekranı, swipe, filtreler
-        ├── matches/       # Eşleşme listesi, davet akışı
-        ├── chat/          # Sohbet listesi + sohbet ekranı
-        └── profile/       # Profil kurulum, düzenleme, kimlik doğrulama
+├── wick-android/              Jetpack Compose app
+│   ├── app/                   entry point, DI, FCM service
+│   ├── core/
+│   │   ├── model/             domain models
+│   │   ├── network/           Retrofit APIs, DTOs
+│   │   ├── data/              repository implementations
+│   │   ├── designsystem/      WickColors, WickTextStyles, WickShapes, components
+│   │   └── billing/           Google Play Billing
+│   └── feature/
+│       ├── auth/              sign in, sign up, password reset
+│       ├── discover/          discovery, swipe, filters
+│       ├── matches/           match list, invitation flow
+│       ├── chat/              conversation list + chat screen
+│       └── profile/           setup, editing, verification
+│
+└── stitch_wick_login_interface_design 2/   UI design screens
 ```
 
----
+## Architecture
 
-## Backend Katman Kuralları
+### Backend
 
-Her domain paketi aynı yapıyı izler:
+Every domain package follows the same layout:
 
 ```
 {domain}/
-├── domain/          # JPA entity (@Entity)
-├── dto/             # Request / Response record'ları
-├── repository/      # JpaRepository + @Query metodları
-├── service/         # Interface
-│   └── impl/        # Implementasyon (@Service)
-├── controller/      # @RestController — sadece HTTP, iş mantığı yok
-└── mapper/          # Entity ↔ DTO dönüşümleri
+├── domain/        JPA entities
+├── dto/           request / response records
+├── repository/    Spring Data repositories
+├── service/       interfaces
+│   └── impl/      implementations (@Service)
+├── controller/    @RestController — HTTP only, no business logic
+└── mapper/        entity ↔ DTO mapping
 ```
 
-**Kurallar:**
-- İş mantığı **sadece** `service/impl/` içinde
-- Controller sadece auth principal alır, service'e delege eder, response döner
-- Exception fırlatmak için `ApiException(message, HttpStatus)` kullan — `GlobalExceptionHandler` otomatik yakalar
-- Yetersiz token → `InsufficientTokensException` (402 döner)
-- Veritabanı migration'ları `src/main/resources/db/migration/V{n}__{açıklama}.sql` formatında, Flyway otomatik çalıştırır
+- Business logic lives only in `service/impl/`.
+- Controllers take the authenticated principal, delegate to a service and return a response.
+- Errors are raised as `ApiException(message, HttpStatus)` and handled centrally by `GlobalExceptionHandler`; an insufficient token balance raises `InsufficientTokensException` (HTTP 402).
+- Schema changes are Flyway migrations in `src/main/resources/db/migration/V{n}__{description}.sql`.
 
----
-
-## Android Katman Kuralları
+### Android
 
 ```
-Screen (Compose UI)
-  └── ViewModel (state + action)
+Screen (Compose)
+  └── ViewModel (state + actions)
         └── Repository (interface)
               └── RepositoryImpl (network + mapping)
-                    └── Api (Retrofit interface)
+                    └── Api (Retrofit)
 ```
 
-- Her ekran bir `UiState` data class + `Action` sealed interface'e sahip
-- ViewModel sadece `_uiState: MutableStateFlow<UiState>` günceller
-- Network sonuçları `AppResult<T>` (Success / Failure) ile wrap edilir
-- Hatalar `UiError` sealed class ile tip güvenli şekilde handle edilir
-- Tasarım sistemi: `WickColors`, `WickTextStyles`, `WickShapes` — doğrudan `MaterialTheme` kullanılmaz
+- Each screen has a `UiState` data class and an `Action` sealed interface.
+- ViewModels expose state through a single `MutableStateFlow<UiState>`.
+- Network results are wrapped in `AppResult<T>` (`Success` / `Failure`); errors are typed via the `UiError` sealed class.
+- UI uses the Wick design system (`WickColors`, `WickTextStyles`, `WickShapes`) rather than `MaterialTheme` directly.
 
----
+## Key Flows
 
-## Veritabanı Bağlantısı
+| Flow | Details |
+|---|---|
+| Onboarding | Sign up → profile setup → discover |
+| Matching | Like + mutual like → match → invitation → session → chat |
+| Session length | 24 hours from opening by default; extendable by spending tokens |
+| Super like | Costs 1 token and sends the recipient a dedicated notification |
+| Verification | Selfie upload → automated face check → admin approval → verified badge |
+| Earning tokens | Daily login, verification bonus, purchases |
 
-```
-Host:     localhost:5432
-DB:       wick
-User:     wick
-Password: wick
-```
+## Getting Started
 
----
+### Prerequisites
 
-## Çalıştırma
+- JDK 17, Docker + Docker Compose
+- Android Studio (latest stable) with Android SDK 36
 
-**Backend:**
+### Backend
+
+Start PostgreSQL and Redis, then run the API:
+
 ```bash
 cd wick-backend
+docker compose up -d postgres redis
 ./mvnw spring-boot:run -Dmaven.test.skip=true
-# Port: 8080
+# API on http://localhost:8080
 ```
 
-**Android derle:**
+Or run the whole stack in Docker (requires `APP_JWT_SECRET` in a `.env` file — see `.env.example`):
+
+```bash
+cd wick-backend
+docker compose up -d --build
+```
+
+Default local database: `localhost:5432`, database / user / password `wick`.
+
+### Android
+
 ```bash
 cd wick-android
-./gradlew :app:compileDebugKotlin
+./gradlew :app:assembleDebug
 ```
 
-> Test kullanıcıları: `ahmet@test.com` / `zeynep@test.com` — şifre: `wick1234`
+Or open `wick-android/` in Android Studio and run the `app` configuration.
 
----
+### Test accounts (local seed data)
 
-## Önemli Akışlar
-
-| Akış | Detay |
+| Email | Password |
 |---|---|
-| Kayıt | Register → profil kurulum → keşfet |
-| Eşleşme | Like + karşılıklı like → match → davet → oturum → sohbet |
-| Sohbet süresi | Oturum açıldıktan itibaren 24 saat (varsayılan), uzatılabilir (token harcar) |
-| Super like | 1 jeton harcar, karşı tarafa özel bildirim gider |
-| Kimlik doğrulama | Selfie yükle → admin onayı → `verified=true` + rozet |
-| Token kazanma | Günlük giriş, kimlik doğrulama bonusu, satın alma |
+| `ahmet@test.com` | `wick1234` |
+| `zeynep@test.com` | `wick1234` |
 
----
+## Internal Admin API
 
-## Dahili API (Admin)
-
-`X-Internal-Key` header'ı gerektirir (`app.internal.secret` değeri):
+Requires the `X-Internal-Key` header (value of `app.internal.secret`):
 
 ```
-GET  /internal/verify/pending        # Bekleyen kimlik doğrulama listesi
-GET  /internal/verify/{userId}/photo # Selfie fotoğrafı
+GET  /internal/verify/pending           pending verification requests
+GET  /internal/verify/{userId}/photo    verification selfie
 POST /internal/verify/{userId}/approve
 POST /internal/verify/{userId}/reject
 ```
 
----
+## Known Gaps
 
-## Bilinen Eksikler / TODO
-
-| # | Konu | Durum |
+| # | Topic | Status |
 |---|---|---|
-| TODO-1 | E-posta doğrulama | SMTP yapılandırması bekleniyor |
-| TODO-18 | WebSocket arka plan davranışı | Cihaz testi gerekiyor |
+| TODO-1 | Email verification | Waiting on SMTP configuration |
+| TODO-18 | WebSocket behaviour in background | Needs on-device testing |
+
+See [`BUGS.md`](BUGS.md) for the tracked bug list.
