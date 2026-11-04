@@ -67,7 +67,7 @@ class SessionMessageServiceImplTest {
         ReflectionTestUtils.setField(session, "id", UUID.randomUUID());
         when(sessionService.getById(session.getId())).thenReturn(session);
 
-        assertThatThrownBy(() -> sessionMessageService.sendMessage(session.getId(), userA.getId(), "hi"))
+        assertThatThrownBy(() -> sessionMessageService.sendMessage(session.getId(), userA.getId(), "hi", null))
                 .isInstanceOf(ApiException.class);
     }
 
@@ -78,7 +78,7 @@ class SessionMessageServiceImplTest {
         when(sessionService.getById(session.getId())).thenReturn(session);
         when(matchService.involves(match, userA.getId())).thenReturn(false);
 
-        assertThatThrownBy(() -> sessionMessageService.sendMessage(session.getId(), userA.getId(), "hi"))
+        assertThatThrownBy(() -> sessionMessageService.sendMessage(session.getId(), userA.getId(), "hi", null))
                 .isInstanceOf(ApiException.class);
     }
 
@@ -90,7 +90,7 @@ class SessionMessageServiceImplTest {
         when(matchService.involves(match, userA.getId())).thenReturn(true);
         when(contactInfoDetector.containsContactInfo("call me 0532 123 45 67")).thenReturn(true);
 
-        assertThatThrownBy(() -> sessionMessageService.sendMessage(session.getId(), userA.getId(), "call me 0532 123 45 67"))
+        assertThatThrownBy(() -> sessionMessageService.sendMessage(session.getId(), userA.getId(), "call me 0532 123 45 67", null))
                 .isInstanceOf(ContactInfoNotAllowedException.class);
     }
 
@@ -101,7 +101,7 @@ class SessionMessageServiceImplTest {
         when(sessionService.getById(session.getId())).thenReturn(session);
         when(matchService.involves(match, userA.getId())).thenReturn(false);
 
-        assertThatThrownBy(() -> sessionMessageService.getMessages(session.getId(), userA.getId()))
+        assertThatThrownBy(() -> sessionMessageService.getMessages(session.getId(), userA.getId(), null))
                 .isInstanceOf(ApiException.class);
     }
 }

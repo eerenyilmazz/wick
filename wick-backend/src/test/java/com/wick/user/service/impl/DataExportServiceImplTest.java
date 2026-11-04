@@ -78,7 +78,7 @@ class DataExportServiceImplTest {
         UUID userId = UUID.randomUUID();
         User user = TestEntities.user("eren@example.com", "hash", "Eren");
         ReflectionTestUtils.setField(user, "id", userId);
-        UserResponse userResponse = new UserResponse(userId, "eren@example.com", "Eren", null, null, null, List.of(), null, null, List.of(), false, false, null, false);
+        UserResponse userResponse = new UserResponse(userId, "eren@example.com", "Eren", null, null, null, List.of(), null, null, List.of(), false, null, false, null, false);
         when(userService.getById(userId)).thenReturn(user);
         when(userMapper.toResponse(user)).thenReturn(userResponse);
 

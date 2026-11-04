@@ -81,6 +81,9 @@ class MatchServiceImplTest {
     @Mock
     private NotificationService notificationService;
 
+    @Mock
+    private com.wick.token.service.TokenService tokenService;
+
     private MatchServiceImpl matchService;
 
     private User userA;
@@ -88,7 +91,7 @@ class MatchServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        matchService = new MatchServiceImpl(likeRepository, passRepository, matchRepository, userService, matchRaceSafeWriter, eventLogService, notificationService, blockService, swipeRateLimiter, invitationRepository, sessionRepository, messageRepository);
+        matchService = new MatchServiceImpl(likeRepository, passRepository, matchRepository, userService, matchRaceSafeWriter, eventLogService, notificationService, blockService, swipeRateLimiter, invitationRepository, sessionRepository, messageRepository, tokenService, new com.wick.token.config.TokenProperties());
         userA = TestEntities.user("a@example.com", "hash", "A");
         userB = TestEntities.user("b@example.com", "hash", "B");
         userA.setDateOfBirth(LocalDate.now().minusYears(25));
